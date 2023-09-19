@@ -6,7 +6,7 @@ data = []
 lees json bestand met de setup uit
 opbouw: 
         maketime:
-            {
+            {   
                 date: ['jaar', 'maand', 'dag'],
                 time: ['uur', 'minuut', seconden + millisseconden]
             }
