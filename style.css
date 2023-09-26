@@ -1,0 +1,48 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+:hover{
+    transition: 500ms;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    color: rgb(172, 172, 172);
+}
+
+header{
+    text-align: right;
+    word-spacing: 25px;
+    color: white;
+}
+
+footer{
+    padding: 50px;
+    padding-top: 10px;
+    background-color: grey;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    color: blanchedalmond;
+}
+
+a:hover{
+    font-style: italic;
+}
+
+p:hover{
+    color: red;
+
+}
+
+h1{
+    font-size: 400%;
+    text-align: center;
+    color: whitesmoke;
+    padding: 10px;
+    background-color: darkgray;
+}
+
+h2{
+    color: lightcyan;
+}
+
