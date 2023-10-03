@@ -1,6 +1,23 @@
-import csv, datetime
-dataPath = "data.csv"
+import csv, random, datetime
+from time import sleep
+from flask import Flask
+
 data = []
+
+app = Flask(__name__)
+
+import json, os
+JSONFILEPATH = "setup.json"
+if os.path.isfile(JSONFILEPATH) is False:
+    raise Exception("File not found")
+
+
+
+
+
+
+
+
 
 """
 lees json bestand met de setup uit
@@ -12,7 +29,7 @@ opbouw:
             }
 """
 
-def makeNewFile():
+def makeNewFile(maketime, setupFile, date, time):
     dataPath = f"data_{date[0]}-{date[1]}.csv"
     maketime["date"] = date
     maketime["time"] = time
@@ -25,36 +42,63 @@ def makeNewFile():
     return dataPath
 
 
-import json, os
-JSONFILEPATH = "setup.json"
-if os.path.isfile(JSONFILEPATH) is False:
-    raise Exception("File not found")
-with open(JSONFILEPATH) as filepath:
-    setupFile = json.load(filepath)
+
+
+# #     minuten in dag 1440
+
+
+
+# # verstuur data naar api
+
+@app.route("/", methods=["GET"])
+def index():
+    with open(JSONFILEPATH) as filepath:
+        setupFile = json.load(filepath)
     
-maketime = setupFile["maketime"]
+    maketime = setupFile["maketime"]
 
-date_time = str(datetime.datetime.now()).split(" ")
-date = date_time[0]
-time = date_time[1]
+    date_time = str(datetime.datetime.now()).split(" ")
+    date = date_time[0]
+    time = date_time[1]
 
-date = date.split("-")
-time = time.split(":")
-if maketime["date"][1] != date[1]:
-    dataPath = makeNewFile()
+    date = date.split("-")
+    time = time.split(":")
+    if maketime["date"][1] != date[1]:
+        dataPath = makeNewFile(maketime, setupFile, date, time)
 
-
-
-
+    dataPath = f"data_{date[0]}-{date[1]}.csv"
 
 
-with open(dataPath) as file:
-    reader = csv.reader(file)
-    for row in reader:
-        data.append(row)
+            
+            
+    with open(dataPath, "a", newline='') as file:
+        writer = csv.writer(file)
         
         
-with open(dataPath, "w", newline='') as file:
-    writer = csv.writer(file)
+        
+        
+        # for i in range(1440 * 31):
+        randomTemp = random.randint(1, 100)
+        randomMoist = random.randint(1, 100)
+        fanOn = True if randomTemp > 20 else False
+        fanOn = True if randomMoist > 20 else False
+        if fanOn:
+            fanSpeed = random.randint(1, 100)
+        else:
+            fanSpeed = 0
+            
+        newData = [datetime.datetime.now(), randomTemp, randomMoist, fanOn, fanSpeed]
+        writer.writerow(newData)
+        
+
+
+    return newData, 200
+
+
+
+
+
+
+if __name__ == "__main__":
     
-    writer.writerows(data)
+    app.run()
