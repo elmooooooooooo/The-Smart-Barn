@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: whitesmoke;
+    background-color: white;
     color: black;
 }
 
@@ -20,7 +20,7 @@ header{
 footer{
     padding: 50px;
     padding-top: 10px;
-    background-color: grey;
+    background-color: rgb(171, 195, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
     color: blanchedalmond;
@@ -42,5 +42,10 @@ h1{
     background-color: darkgray;
     margin-left: -10px;
     margin-right: -10px;
+}
+
+.Blog{
+    border-style: solid;
+    background-color: whitesmoke;
 }
 
