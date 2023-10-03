@@ -1,0 +1,22 @@
+.Hoofdfoto{
+    width: 300px;
+    height: 300px;
+}
+
+.Thumbnail{
+    width: 350px;
+    height: 250px;
+}
+
+
+.colorShiftOnHover {
+    color: black;
+    display: inline;
+    transition: 200ms;
+
+}
+
+.colorShiftOnHover:hover{
+    color: red;
+    transition: 200ms;
+}
