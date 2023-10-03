@@ -24,6 +24,6 @@
 }
 
 .colorShiftOnHover:hover{
-    color: red;
+    color: rgb(25, 255, 84);
     transition: 200ms;
 }
