@@ -8,6 +8,13 @@
     height: 250px;
 }
 
+.ThumbnailHardware{
+    width: 350px;
+    height: 250px;
+    border-style: solid;
+    border-color: rgb(35, 218, 255);
+}
+
 
 .colorShiftOnHover {
     color: black;
@@ -17,6 +24,6 @@
 }
 
 .colorShiftOnHover:hover{
-    color: red;
+    color: rgb(25, 255, 84);
     transition: 200ms;
 }
