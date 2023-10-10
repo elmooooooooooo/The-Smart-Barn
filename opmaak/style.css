@@ -27,3 +27,9 @@
     color: rgb(25, 255, 84);
     transition: 200ms;
 }
+
+#colorPicker {
+    vertical-align: bottom;
+    height: 40px;
+    width: 40px;
+}
