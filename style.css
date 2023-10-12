@@ -14,7 +14,7 @@ body{
 header{
     text-align: right;
     word-spacing: 10px;
-    color: white;
+    color: rgb(20, 19, 19);
 }
 
 footer{
@@ -23,7 +23,7 @@ footer{
     background-color: rgb(171, 195, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
-    color: blanchedalmond;
+    color: rgb(13, 13, 13);
 }
 
 a:hover{
@@ -39,7 +39,7 @@ h1{
     font-size: 400%;
     text-align: center;
     padding: 10px;
-    background-color: darkgray;
+    background-color: rgb(183, 197, 244);
     margin-left: -10px;
     margin-right: -10px;
 }
