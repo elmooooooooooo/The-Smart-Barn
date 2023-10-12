@@ -1,10 +1,13 @@
 import csv, random, datetime
 from time import sleep
 from flask import Flask
+from flask_cors import CORS
 
 data = []
 
 app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 import json, os
 JSONFILEPATH = "setup.json"
@@ -89,7 +92,6 @@ def index():
             
         newData = [datetime.datetime.now(), randomTemp, randomMoist, fanOn, fanSpeed]
         writer.writerow(newData)
-        
 
 
     return newData, 200
