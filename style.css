@@ -3,7 +3,7 @@
     scroll-behavior: smooth;
 }
 :hover{
-    transition: 1000s;
+    transition: 100ms;
 }
 
 body{
@@ -14,7 +14,7 @@ body{
 header{
     text-align: right;
     word-spacing: 10px;
-    color: rgb(20, 19, 19);
+    color: black;
 }
 
 footer{
@@ -23,16 +23,15 @@ footer{
     background-color: rgb(171, 195, 236);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
-    color: rgb(13, 13, 13);
+    color: black;
+}
+footer.p{
+    font-size: 200%;
 }
 
 a:hover{
     font-style: italic;
-}
-
-p:hover{
-    color: red;
-
+    font-size: 150%;
 }
 
 h1{
@@ -44,11 +43,26 @@ h1{
     margin-right: -10px;
 }
 
+p.auteurs{
+    color: grey;
+}
 
 div.contact {
     float: left;
+    text-align: center;
+}
+
+div.contact:hover{
+    margin-left: 50px;
+    color: blue;
 }
 
 div.school-contact{
     float: right;
+    text-align: center;
+}
+
+div.school-contact:hover{
+    margin-right: 50px;
+    color: blue;
 }
