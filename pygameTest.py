@@ -30,23 +30,55 @@ unitYas = 500 / YasVerschil
 
 tempGoed = setup["range"]["goed"]
 
+
+ideaalVlak = []
+behaagelijkVlak = []
+
+def maakPunt(vlak, range):
+    puntInVlak = []
+    for punt in range:
+        x = (punt[0] - unitRange["x-as"][0]) * unitXas 
+        y =  500 - (punt[1] * unitYas)
+        
+        puntInVlak.append(x)
+        
+        
+        puntInVlak.append(y)
+        
+        vlak.append(puntInVlak)
+        puntInVlak = []
+    return vlak
+
+ideaalVlak = maakPunt(ideaalVlak, setup["range"]["goed"])
+behaagelijkVlak = maakPunt(behaagelijkVlak, setup["range"]["matig"])
+print(ideaalVlak)   
+print(behaagelijkVlak)    
+
 while True:
     clock.tick(10)
-    display.fill((255,255,255))
+    display.fill(richtlijnen["slecht"]["kleur"])
+    
+    pygame.draw.polygon(display, richtlijnen["matig"]["kleur"], behaagelijkVlak)
 
-    test = pygame.draw.polygon(display, richtlijnen["goed"]["kleur"], (( (tempGoed[0][0] - 12) * 31.25  , 500 - tempGoed[0][1] * 5), 
-                                                                ((tempGoed[1][0] - 12) * 31.25,  500 - tempGoed[1][1] * 5), 
-                                                                (  (tempGoed[2][0] - 12) * 31.25, 500 -tempGoed[2][1] * 5), 
-                                                                ( (tempGoed[3][0] - 12) * 31.25, 500 - tempGoed[3][1] * 5)))
+    pygame.draw.polygon(display, richtlijnen["goed"]["kleur"], ideaalVlak)
     
     a = pygame.image.tostring(display, 'RGB')
     
     b = PIL.Image.frombytes('RGB', (info.current_w, info.current_h), a)
     
-    try:
-        print(b.getpixel(pygame.mouse.get_pos()) == (0, 255, 0))
-    except:
-        print(False)
+    puntPos = pygame.mouse.get_pos()
+    
+    if b.getpixel(puntPos) == (0, 255, 0): 
+        print("goede omgeving")
+    
+    if b.getpixel(puntPos) == (255, 255, 0):
+        print("matige omgeving")
+        
+    if b.getpixel(puntPos) == (255, 0, 0):
+        print("slechte omgeving")
+    
+    pygame.draw.circle(display, (0,0,0), puntPos, 3)
+        
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
