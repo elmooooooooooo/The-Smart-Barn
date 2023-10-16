@@ -7,6 +7,7 @@ pygame.init()
 display = pygame.display.set_mode((500, 500))
 clock = pygame.time.Clock()
 info = pygame.display.Info()
+pygame.display.set_caption("the smart barn")
 
 
 richtlijnen = {
@@ -34,6 +35,7 @@ tempGoed = setup["range"]["goed"]
 ideaalVlak = []
 behaagelijkVlak = []
 
+
 def maakPunt(vlak, range):
     puntInVlak = []
     for punt in range:
@@ -58,9 +60,10 @@ while True:
     clock.tick(10)
     display.fill(richtlijnen["slecht"]["kleur"])
     
+    
     pygame.draw.polygon(display, richtlijnen["matig"]["kleur"], behaagelijkVlak)
 
-    pygame.draw.polygon(display, richtlijnen["goed"]["kleur"], ideaalVlak)
+    rect = pygame.draw.polygon(display, richtlijnen["goed"]["kleur"], ideaalVlak)
     
     a = pygame.image.tostring(display, 'RGB')
     
@@ -78,7 +81,10 @@ while True:
         print("slechte omgeving")
     
     pygame.draw.circle(display, (0,0,0), puntPos, 3)
-        
+    
+   
+    # center = (rect.width,rect.height)
+    # pygame.draw.circle(display, (255, 255, 255), center, 5)    
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
