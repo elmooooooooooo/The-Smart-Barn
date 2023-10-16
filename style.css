@@ -44,8 +44,9 @@ h1{
     margin-right: -10px;
 }
 
-.Blog{
-    border-style: solid;
-    background-color: whitesmoke;
+img{
+    float: right;
+    margin-right: 50px;
+    border: 0,5cm;
 }
 
