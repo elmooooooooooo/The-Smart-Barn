@@ -19,11 +19,10 @@ header{
 
 footer{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: small;
+    font-size: 85%;
+    text-align: center;
     color: black;
-}
-footer.p{
-    font-size: 200%;
+    background-color: rgb(183, 197, 244);
 }
 
 a:hover{
@@ -36,35 +35,16 @@ h1{
     text-align: center;
     padding: 10px;
     background-color: rgb(183, 197, 244);
-    margin-left: -10px;
-    margin-right: -10px;
 }
 
-
-div.contact {
-    background-color: rgb(183, 197, 244);
-    float: left;
-    text-align: center;
-}
-
-div.contact:hover{
-    margin-left: 50px;
-    color: blue;
-}
-
-div.school-contact{
-    background-color: rgb(183, 197, 244);
-    float: right;
-    text-align: center;
-}
-
-div.school-contact:hover{
-    margin-right: 50px;
-    color: blue;
-}
-
-img{
+img.boer{
     float: right;
     margin-right: 20px;
     margin-top: -50px;
+}
+
+.disclaimer{
+    text-align: center;
+    border-width: 5px;
+    border-style: solid;
 }
