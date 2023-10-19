@@ -16,14 +16,15 @@
 }
 
 
-.colorShiftOnHover {
+.colorSw {
     color: black;
     display: inline;
     transition: 200ms;
 
 }
 
-.colorShiftOnHover:hover{
-    color: rgb(25, 255, 84);
+.colorSw:hover{
+    color: rgb(25, 200, 84);
     transition: 200ms;
 }
+
