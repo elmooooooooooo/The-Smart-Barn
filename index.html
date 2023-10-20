@@ -14,6 +14,7 @@
 
 <body>
 
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand ps-3" href="#"><img src="afbeeldingen/logo.svg" width="120"></a>
@@ -36,6 +37,7 @@
             </ul>
         </div>
     </nav>
+
 
     <!-- Hoofding -->
     <div class="container-fluid pt-2 pb-4" style="background-color: #F2F2F2;">
@@ -62,7 +64,7 @@
                     <img class="card-img-top Hoofdfoto" src="afbeeldingen/Blog-Post-Header.png" alt="Card image cap">
                     <div class="card-body">
                         <h3 class="card-title">Hardware</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, sunt!</p>
+                        <p class="card-text">Wij zorgen voor dat alle hardware in orde is en dat alles goed werkt.</p>
                         <a href="#hardware" class="btn btn-dark">Bekijk de posts</a>
                     </div>
                 </div>
@@ -168,7 +170,7 @@
             <div class="p-4 p-md-5 mb-4 text-white rounded bg-primary">
                 <div class="col-md-10 px-0">
                     <h1 class="display-4 fst-italic">Hardware</h1>
-                    <p class="lead my-3">Schrijf in het kort wat je in dit onderdeel doet + wie eraan werkt.</p>
+                    <p class="lead my-3">Wij zijn Mohcine en Vince en wij zorgen ervoor dat hardwarematig alles klopt.</p>
                 </div>
             </div>
         </div>
@@ -200,11 +202,28 @@
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary">Mohcine en Vince</strong>
-                        <h3 class="mb-0">Titel van blog</h3>
-                        <div class="mb-1 text-muted">Datum</div>
+                        <h3 class="mb-0">Hardware website</h3>
+                        <div class="mb-1 text-muted">3/10/2023</div>
                         <p class="card-text mb-auto">Wi hebben deze blog vandaag geschereven. we hebben een css file toegevoegd en er voor gezorgd dat de fotos even groot zijn. ook heb ik hiervoor eerst de basis van webdev moeten leren en moeten toepassen.
                                                     <br>
                                                     Later dit jaar gaan wij nog aanpassingen maken aan de blog en elke paar weken de blog beter maken en vernieuwen voor de laatste nieuws &#128175;
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="row pb-2 justify-content-center">
+            <div class="col-md-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Mohcine en Vince</strong>
+                        <h3 class="mb-0">Siemens IOT2050</h3>
+                        <div class="mb-1 text-muted">19/10/2023</div>
+                        <p class="card-text mb-auto">
+                            Vandaag hebben we voor het eerst gewerkt met de IOT2050 en kunnen we kijken hoe het werkt
                         </p>
                     </div>
                 </div>
@@ -229,8 +248,34 @@
                 </div>
             </div>
         </div>
+        <div class="row mb-2 justify-content-center">
+            <div class="col-md-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Zakaria en Sem</strong>
+                        <h3 class="mb-0">Grafiek door middel van pygame</h3>
+                        <div class="mb-1 text-muted">12/10/2023</div>
+                        <p class="card-text mb-auto"> We hebben door middel van pygame een grafiek opgesteld om de gebieden te onderschijden. We hebben 3 gebieden opgesteld: <br>
+                            
+                            - Slecht omgeving (rood) <br>
+                            - Matige omgeving (geel) <br>
+                            - Goede omgeving (groen) <br>
+                            
+                            Door middel van een polygon kunnen wij zo de gebieden tekenen en weergeven. We hebben elke gebied een andere kleur gegeven zo dat we weten welke gebied goed is en welke slecht.
+                            We gebruiken nu nog een muis om de positie op te halen maar later na veranderen we dit na de data die we op krijgen van de microcontroller.
+                            Vervolgens gaan we op basis van de data die we krijgen via de microcontroller,gaan we de ventilator aansturen.
+                        </p>
+                    </div>
+                    <div class="col-auto d-none d-md-block my-auto me-3"> <!-- md bepaald wanneer afbeelding verdwijnt. Zie hier voor andere opties: https://getbootstrap.com/docs/4.0/layout/grid/#grid-options  -->
+                        <img class="card-img-top Thumbnail" src="afbeeldingen/softwareblog2.png" width="100%" alt="Card image cap">
+                    </div>
+                </div>
+            </div>  
+        </div>
+
 
         <!-- Post zonder Thumbnail -->
+
         <div class="row pb-2 justify-content-center">
             <div class="col-md-10">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -317,22 +362,22 @@
         }
 
 
+       
         // software gang
-        const text = document.querySelectorAll(".colorSw")
-        var userColor = localStorage.getItem("userColor") // wanneer dit niet bestaat geeft hij null
-        if (userColor === null) {
-            userColor = (0, 200, 0);
+        var muisvolger = document.getElementById("muisvolger")
+        document.onmousemove = function(e) {
+            posx = e.clientX;
+            posy = e.clientY;
+            
         }
-        function changeTextHoverColor() {
-            for (var index = 0; index < text.length; index++) {
-                text[index].style.color
-            }
 
-            localStorage.setItem("userColor", userColor)
-        }
+
+
+            
+        
         
     </script>
-
+    
 </body>
 
 </html>
