@@ -39,12 +39,7 @@ h1{
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: rgb(183, 197, 244);
-   
-
 }
-
-
-
 
 .inhoudsTabelGeheel {
     display: grid;
@@ -59,7 +54,7 @@ h1{
     grid-column: 1;
     display: block;
 }
-img.boer{
+a.boer{
     grid-row: 1;
     grid-column: 2;
     justify-items: end;
