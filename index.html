@@ -14,6 +14,7 @@
 
 <body>
 
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand ps-3" href="#"><img src="afbeeldingen/logo.svg" width="120"></a>
@@ -36,6 +37,7 @@
             </ul>
         </div>
     </nav>
+
 
     <!-- Hoofding -->
     <div class="container-fluid pt-2 pb-4" style="background-color: #F2F2F2;">
@@ -231,8 +233,34 @@
                 </div>
             </div>
         </div>
+        <div class="row mb-2 justify-content-center">
+            <div class="col-md-10">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">Zakaria en Sem</strong>
+                        <h3 class="mb-0">Grafiek door middel van pygame</h3>
+                        <div class="mb-1 text-muted">12/10/2023</div>
+                        <p class="card-text mb-auto"> We hebben door middel van pygame een grafiek opgesteld om de gebieden te onderschijden. We hebben 3 gebieden opgesteld: <br>
+                            
+                            - Slecht omgeving (rood) <br>
+                            - Matige omgeving (geel) <br>
+                            - Goede omgeving (groen) <br>
+                            
+                            Door middel van een polygon kunnen wij zo de gebieden tekenen en weergeven. We hebben elke gebied een andere kleur gegeven zo dat we weten welke gebied goed is en welke slecht.
+                            We gebruiken nu nog een muis om de positie op te halen maar later na veranderen we dit na de data die we op krijgen van de microcontroller.
+                            Vervolgens gaan we op basis van de data die we krijgen via de microcontroller,gaan we de ventilator aansturen.
+                        </p>
+                    </div>
+                    <div class="col-auto d-none d-md-block my-auto me-3"> <!-- md bepaald wanneer afbeelding verdwijnt. Zie hier voor andere opties: https://getbootstrap.com/docs/4.0/layout/grid/#grid-options  -->
+                        <img class="card-img-top Thumbnail" src="afbeeldingen/softwareblog2.png" width="100%" alt="Card image cap">
+                    </div>
+                </div>
+            </div>  
+        </div>
+
 
         <!-- Post zonder Thumbnail -->
+
         <div class="row pb-2 justify-content-center">
             <div class="col-md-10">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -319,22 +347,22 @@
         }
 
 
+       
         // software gang
-        const text = document.querySelectorAll(".colorSw")
-        var userColor = localStorage.getItem("userColor") // wanneer dit niet bestaat geeft hij null
-        if (userColor === null) {
-            userColor = (0, 200, 0);
+        var muisvolger = document.getElementById("muisvolger")
+        document.onmousemove = function(e) {
+            posx = e.clientX;
+            posy = e.clientY;
+            
         }
-        function changeTextHoverColor() {
-            for (var index = 0; index < text.length; index++) {
-                text[index].style.color
-            }
 
-            localStorage.setItem("userColor", userColor)
-        }
+
+
+            
+        
         
     </script>
-
+    
 </body>
 
 </html>
