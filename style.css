@@ -1,10 +1,10 @@
 *{
     font-family: 'Times New Roman', Times, serif;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
+    transition:300ms;
+
 }
-:hover{
-    transition: 100ms;
-}
+
 
 body{
     background-color: whitesmoke;
@@ -23,28 +23,88 @@ footer{
     text-align: center;
     color: black;
     background-color: rgb(183, 197, 244);
+    margin-bottom: 10px;
 }
 
 a:hover{
     font-style: italic;
-    font-size: 150%;
+    color: green;
 }
 
 h1{
+
     font-size: 400%;
     text-align: center;
     padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     background-color: rgb(183, 197, 244);
+   
+
 }
 
+
+
+
+.inhoudsTabelGeheel {
+    display: grid;
+    align-items: center;
+    width: 75vw;
+    background-color:rgb(241, 240, 240);
+    padding-top: 10px;
+}
+.inhoudsTabel {
+    justify-self: center;
+    grid-row: 1;
+    grid-column: 1;
+    display: block;
+}
 img.boer{
-    float: right;
-    margin-right: 20px;
-    margin-top: -50px;
+    grid-row: 1;
+    grid-column: 2;
+    justify-items: end;
+    width: 40vw;
+}
+
+#lijn {
+    background-color: black;
+    width: 75vw;
+    margin-top: 10px;
+ 
+    height: 3px;
+}
+
+.main {
+    width: 75vw;
+    background-color: rgb(236, 237, 237);
+    
+}
+
+.text {
+    padding: 2vw;
 }
 
 .disclaimer{
     text-align: center;
-    border-width: 5px;
-    border-style: solid;
+    border-width: 3px;
+    border-style:   groove;
+   
 }
+
+#test {
+    display: flex;
+    justify-content: center;
+    
+}
+img.Genk{
+    margin-right: 20px;
+    /* margin-top: -50px;  */
+}
+
+#genkTitel {
+    display: block;
+}
+.contact{
+    margin-top: 5px;
+    margin-bottom: 10px;
+} 
