@@ -28,5 +28,11 @@
     transition: 200ms;
 }
 
-
+.circle {
+	position: absolute;
+    background-color: rgba(255, 0, 0, 0);
+	width: 60px; 
+	height: 60px; 
+  border-radius: 50%;  
+}
 

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <span id="circle" class="circle"></span>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -229,7 +229,7 @@
             <div class="p-4 p-md-5 mb-4 text-white rounded bg-success">
                 <div class="col-md-10 px-0">
                     <h1 class="display-4 fst-italic">Software</h1>
-                    <p class="lead my-3">Wij zijn <b>Zakaria</b> en <b>Sem</b> en wij zorgen ervoor dat de ventilator aangestuurd word, de status wordt opgeslagen en doorgestuurd naar de website</p>
+                    <p class="lead my-3">Wij zijn <b>Zakaria</b> en <b>Sem</b> en wij zorgen ervoor dat de ventilator aangestuurd wordt, de status wordt opgeslagen en doorgestuurd naar de website.</p>
                 </div>
             </div>
         </div>
@@ -240,15 +240,15 @@
                         <strong class="d-inline-block mb-2 text-primary">Zakaria en Sem</strong>
                         <h3 class="mb-0">Grafiek door middel van pygame</h3>
                         <div class="mb-1 text-muted">12/10/2023</div>
-                        <p class="card-text mb-auto"> We hebben door middel van pygame een grafiek opgesteld om de gebieden te onderschijden. We hebben 3 gebieden opgesteld: <br>
+                        <p class="card-text mb-auto"> We hebben door middel van Pygame een grafiek opgesteld om de temperatuur en luchtvochtigheid samen te bereken. De x-as wordt bepaald door de temperatuur en de y-as door de luchtvochtigheid. Zo wordt een punt in een grafiek bepaald. Om de luchtkwaliteit te onderscheiden hebben we 3 gebieden opgesteld: <br>
                             
-                            - Slecht omgeving (rood) <br>
-                            - Matige omgeving (geel) <br>
-                            - Goede omgeving (groen) <br>
-                            
-                            Door middel van een polygon kunnen wij zo de gebieden tekenen en weergeven. We hebben elke gebied een andere kleur gegeven zo dat we weten welke gebied goed is en welke slecht.
-                            We gebruiken nu nog een muis om de positie op te halen maar later na veranderen we dit na de data die we op krijgen van de microcontroller.
-                            Vervolgens gaan we op basis van de data die we krijgen via de microcontroller,gaan we de ventilator aansturen.
+                            &nbsp&nbsp&nbsp - Slechte omgeving <b style="color: red;">(rood)</b> <br>
+                            &nbsp&nbsp&nbsp - Matige omgeving <b style="color: rgb(179, 179, 42);">(geel)</b> <br>
+                            &nbsp&nbsp&nbsp - Goede omgeving <b style="color: green;">(groen)</b><br>
+                            <br>
+                            Door middel van de Pygame polygon teken functie kunnen wij zo de gebieden tekenen en weergeven (zie foto). We hebben elk gebied een andere kleur gegeven, zodat we weten welk gebied goed is en welke slecht.
+                            We gebruiken nu nog een muis om de positie te bepalen, maar dit zal later vervangen worden door de data die we van de microcontroller krijgen.
+                            Deze data zal dan geanaliseerd worden om hiermee de ventilatoren aan te sturen.
                         </p>
                     </div>
                     <div class="col-auto d-none d-md-block my-auto me-3"> <!-- md bepaald wanneer afbeelding verdwijnt. Zie hier voor andere opties: https://getbootstrap.com/docs/4.0/layout/grid/#grid-options  -->
@@ -349,11 +349,20 @@
 
        
         // software gang
-        var muisvolger = document.getElementById("muisvolger")
+        var posy = 0;
+        var scr = 0;
+        var muisvolger = document.getElementById("circle")
         document.onmousemove = function(e) {
             posx = e.clientX;
             posy = e.clientY;
-            
+            muisvolger.style.left = (posx - 30) + "px"
+            muisvolger.style.top = (posy + scr - 30) + "px"
+        }
+
+        window.onscroll = function(e) {
+            scr = window.pageYOffset
+            console.log(scr)
+            muisvolger.style.top = (posy + scr - 30) + "px"
         }
 
 
