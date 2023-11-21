@@ -93,7 +93,6 @@ def index():
         newData = [datetime.datetime.now(), randomTemp, randomMoist, fanOn, fanSpeed]
         writer.writerow(newData)
 
-
     return newData, 200
 
 
