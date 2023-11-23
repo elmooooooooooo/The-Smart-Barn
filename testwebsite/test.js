@@ -1,11 +1,7 @@
-// const dataURL = "http://172.16.1.228:5000";
-const dataURL = "https://opentdb.com/api.php?amount=10";
+const dataURL = "http://172.16.1.228:5000";
+// const dataURL = "https://opentdb.com/api.php?amount=10";
 
-document.getElementById("text").addEventListener("click", (event) => {
-    event.preventDefault();
-    requestData();
-  });
-
+requestData()
 
 function requestData() {
     const fetchPromise = fetch(dataURL);
@@ -22,6 +18,9 @@ function transferData(data) {
     document.getElementById("text").innerHTML = data;
     dataArray = Object.entries(data)
     console.log(dataArray)
+    setTimeout(() => {
+        requestData()
+    }, 1000);
     // writeCSV(dataArray);
 }
 
