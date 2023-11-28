@@ -1,4 +1,4 @@
-fetch("Hergebruikende codes voor de site/navbar.html")
+fetch("HergebruikendeCodeSite/navbar.html")
   .then(response => {
     return response.text()
   })
