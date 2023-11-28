@@ -92,7 +92,7 @@ img.Genk {
 }
 
 .main {
-  width: 75vw;
+  width: 100vw;
   background-color: rgb(236, 237, 237);
 }
 
@@ -113,7 +113,7 @@ img.Genk {
 
 #lijn {
   background-color: black;
-  width: 75vw;
+  width: 90vw;
   margin-top: 10px;
 
   height: 3px;
