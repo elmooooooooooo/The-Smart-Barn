@@ -71,7 +71,7 @@
   .inhoudsTabelGeheel {
     display: grid;
     align-items: center;
-    width: 75vw;
+    width: 90vw;
     background-color: rgb(241, 240, 240);
     padding-top: 10px;
   }
@@ -98,7 +98,7 @@
   }
   
   .main {
-    width: 75vw;
+    width: 90vw;
     background-color: rgb(236, 237, 237);
   }
   
