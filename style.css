@@ -33,6 +33,7 @@ footer {
   background-color: rgb(110, 110, 110);
   color: white;
 
+
   padding-left: 2%;
   padding-top: 0.5%;
 }
@@ -40,6 +41,7 @@ footer {
   background-color: rgb(110, 110, 110);
   color: white;
   padding: 0.5%;
+  
 }
 
 #column2 {
@@ -52,10 +54,7 @@ footer {
   padding-right: 2%;
 }
 
-a:hover {
-  font-style: italic;
-  color: green;
-}
+
 
 h1 {
   font-size: 400%;
