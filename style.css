@@ -66,64 +66,8 @@ h1 {
   background-color: rgb(183, 197, 244);
 }
 
-a.boer {
-  grid-row: 1;
-  grid-column: 2;
-  justify-items: end;
-  width: 40vw;
-}
-
-img.Genk {
-  margin-left: -55px;
-}
-
-.inhoudsTabelGeheel {
-  display: grid;
-  align-items: center;
-  width: 75vw;
-  background-color: rgb(241, 240, 240);
-  padding-top: 10px;
-}
-.inhoudsTabel {
-  justify-self: center;
-  grid-row: 1;
-  grid-column: 1;
-  display: block;
-}
-
-.main {
-  width: 100vw;
-  background-color: rgb(236, 237, 237);
-}
-
-.text {
-  padding: 2vw;
-}
-
 .disclaimer {
   text-align: center;
   border-width: 3px;
   border-style: groove;
-}
-
-.contact {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-#lijn {
-  background-color: black;
-  width: 90vw;
-  margin-top: 10px;
-
-  height: 3px;
-}
-
-#test {
-  display: flex;
-  justify-content: center;
-}
-
-#genkTitel {
-  display: block;
 }
