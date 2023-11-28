@@ -13,6 +13,10 @@
   }
   
   header{
+    margin-bottom: 20px;
+  }
+  
+  navigatiebalk{
     display: grid;
   }
   

@@ -1,7 +1,10 @@
-header{
+navigatiebalk{
   display: grid;
+}
+header{
   margin-bottom: 20px;
 }
+
 
 #column1{
     text-align: left;
