@@ -13,7 +13,7 @@ body {
   background-color: whitesmoke;
   color: black;
   margin: 0px;
-  text-align: center;
+  
 }
 
 footer {
@@ -66,8 +66,19 @@ h1 {
   background-color: rgb(183, 197, 244);
 }
 
+h2 {
+  margin-left: 40px ;
+  margin-top: 40px;
+}
 .disclaimer {
   text-align: center;
   border-width: 3px;
   border-style: groove;
+}
+
+#Inleiding{
+
+  text-align: left;
+  margin-left: 40px;
+  margin-top: 40px;
 }
