@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 import json, os
-JSONFILEPATH = "setup.json"
+JSONFILEPATH = "The-Smart-Barn\setup.json"
 if os.path.isfile(JSONFILEPATH) is False:
     raise Exception("File not found")
 
