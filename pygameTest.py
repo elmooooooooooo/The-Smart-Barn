@@ -11,15 +11,7 @@ pygame.display.set_caption("the smart barn")
 
 
 richtlijnen = {
-    "goed": {
-        "kleur": (0,255,0)
-    },
-    "matig": {
-        "kleur": (255, 255, 0)
-    },
-    "slecht": {
-        "kleur": (255, 0, 0)
-    }
+    
 }
 unitRange = setup["range"]
 

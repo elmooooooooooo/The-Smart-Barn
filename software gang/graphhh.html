@@ -1,30 +1,80 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-<script type="text/javascript">
-window.onload = function () {
-var dataPoints = [];
-var chart = new CanvasJS.Chart("chartContainer",{
-	title:{
-		text:"Rendering Chart with dataPoints from External JSON"
-	},
-	data: [{
-		type: "line",
-		dataPoints : dataPoints,
-	}]
-});
-$.getJSON("http://172.16.1.228.5000", function(data) {  
-	    dataPoints.push({x: data[1], y: parseInt(data[2])});
-	});	
-	chart.render();
-};
 
-</script>
+<head>
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+	<script type="text/javascript">
+		counter = 0;
+		function getDataAndPlace(dataPoints, chart) {
+			// 172.16.1.228:5000
+			$.getJSON("http://192.168.0.246:5000", function (data) {
+				const currentDateTime = new Date()
+				var currentTime = `${currentDateTime.getHours()}.${currentDateTime.getMinutes()}.${currentDateTime.getSeconds()}`
+
+				dataPoints.push({
+					x: counter, y: parseInt(data[1]), label: currentTime
+				});
+				if (dataPoints.length > 100) {
+					dataPoints.splice(0, 1)
+				}
+				chart.render();
+				counter++;
+				setTimeout(() => {
+					getDataAndPlace(dataPoints, chart)
+				}, 100);
+			});
+		}
+		window.onload = function () {
+			var temperatureDataPoints = [];
+			var humidityDataPoints = [];
+
+			var temperatureChart = new CanvasJS.Chart("temperatureChartContainer", {
+				title: {
+					text: "Data of the last 24 hours"
+				},
+				data: [{
+					type: "line",
+					dataPoints: humidityDataPoints,
+
+				}, {
+					type: "line",
+					dataPoints: temperatureDataPoints
+					
+				}],
+
+				axisY: {
+					minimum: 0,
+					maximum: 100
+				}
+
+			}); var humidityChart = new CanvasJS.Chart("humidityChartContainer", {
+				title: {
+					text: "Luchtvochtigheid"
+				},
+				data: [{
+					type: "line",
+					dataPoints: humidityDataPoints,
+
+				}],
+				axisY: {
+					minimum: 0,
+					maximum: 100
+				}
+
+			});
+			getDataAndPlace(temperatureDataPoints, temperatureChart);
+			getDataAndPlace(humidityDataPoints, humidityChart);
+
+		}
+	</script>
 
 </head>
+
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	<div id="temperatureChartContainer" style="height: 300px; width: 100%;"></div>
+	<div id="humidityChartContainer" style="height: 300px; width: 100%;"></div>
+
 </body>
+
 </html>
