@@ -5,15 +5,19 @@
 }
 
 header{
-  display: grid;
   margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+navigatiebalk{
+  display: grid;
 }
 
 body {
   background-color: whitesmoke;
   color: black;
-  margin: 0px;
-  
 }
 
 footer {
