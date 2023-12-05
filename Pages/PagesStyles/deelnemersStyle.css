@@ -69,20 +69,24 @@ h2{
   text-align: center;
 }
 
-#Teams{
+#Visualisatie{
   display: grid;
+  text-align: center;
 }
 
-#Titel{
-  grid-row: 2;
+#VisualisatieTitel{
+  grid-row: 1;
   grid-column: 2;
 
-}
-
-#Visualisatie{
-  grid-column: 1;
+  background-color: aqua;
 }
 
 #Amy{
+  grid-row: 3;
   grid-column: 1;
+}
+
+#Tycho{
+  grid-row: 3;
+  grid-column: 3;
 }
