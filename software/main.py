@@ -123,9 +123,8 @@ def index():
     
             
         newData = [datetime.datetime.now(), temp, vocht, fanOn, fanSpeed]
-        # writer.writerow(newData)
+        writer.writerow(newData)
     return newData, 200
 
 if __name__ == "__main__":
-    
     APP.run(host="0.0.0.0")
