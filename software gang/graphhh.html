@@ -5,12 +5,38 @@
 	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 	<script type="text/javascript">
+		const grapLines = {
+			grap1temp: 0,
+			grap1hum: 1,
+			grap2temp: 2,
+			grap2hum: 3,
+			grap3temp: 4,
+			grap3hum: 5
+		}
+		
+		function always2TimeDigits(unitToCheck) {
+			if (unitToCheck < 10) {
+				return '0' + unitToCheck;
+			};
+			return unitToCheck;
+		}
+
+		function checkBox(grapID) {
+			
+		}
+
 		counter = 0;
 		function getDataAndPlace(dataPoints, chart) {
-			// 172.16.1.228:5000
-			$.getJSON("http://192.168.0.246:5000", function (data) {
+			$.getJSON("http://172.16.1.228:5000", function (data) {// 
+				// $.getJSON("http://192.168.0.246:5000", function (data) {
 				const currentDateTime = new Date()
-				var currentTime = `${currentDateTime.getHours()}.${currentDateTime.getMinutes()}.${currentDateTime.getSeconds()}`
+				let hours = currentDateTime.getHours();
+				hours = always2TimeDigits(hours);
+				let minutes = currentDateTime.getMinutes();
+				minutes = always2TimeDigits(minutes);
+				let seconds = currentDateTime.getSeconds(); // seconds will be removed in final release
+				seconds = always2TimeDigits(seconds) // same for this
+				var currentTime = `${hours}.${minutes}.${seconds}`
 
 				dataPoints.push({
 					x: counter, y: parseInt(data[1]), label: currentTime
@@ -40,7 +66,6 @@
 				}, {
 					type: "line",
 					dataPoints: temperatureDataPoints
-					
 				}],
 
 				axisY: {
@@ -67,12 +92,19 @@
 			getDataAndPlace(humidityDataPoints, humidityChart);
 
 		}
+	
 	</script>
 
 </head>
 
 <body>
 	<div id="temperatureChartContainer" style="height: 300px; width: 100%;"></div>
+	<div class="checkBoxContainer">
+		<label>display temperature</label>
+		<input type="checkbox" class="checkBox" name="checkBox" , onchange="checkBox(grapLines.grap1temp)" checked>
+		<label>display humidity</label>
+		<input type="checkbox" class="checkBox" name="checkBox" , onchange="checkBox(grapLines.grap1hum)" checked>
+	</div>
 	<div id="humidityChartContainer" style="height: 300px; width: 100%;"></div>
 
 </body>

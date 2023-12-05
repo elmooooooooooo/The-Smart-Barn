@@ -26,8 +26,8 @@ def randomAlgorithm(previousNumber):
     return newNumber     
     
 
-randomTemp = 20
-randomMoist = 15
+randomTemp = 0
+randomMoist = 90
 
 ##################################################################################
 """
@@ -41,7 +41,7 @@ opbouw:
 """
 ##################################################################################
 
-class CSVkeeper():
+class CSVfileDateChecker():
     def __init__(self) -> None:
         pass
     
@@ -74,9 +74,9 @@ class CSVkeeper():
             json.dump(self.setupFileData, json_file, indent = 4, separators=(',',': '))
         return newCSVdataPath
 
-CSVKEEPER = CSVkeeper()
+csvFileDateChecker = CSVfileDateChecker()
 
-# #     minuten in dag 1440
+# minuten in dag 1440
 
 ###############################################
 # verstuur data naar api met Flask API module #
@@ -85,7 +85,7 @@ CSVKEEPER = CSVkeeper()
 @APP.route("/", methods=["GET"])
 def index():
     global randomTemp, randomMoist
-    CSVdataPath = CSVKEEPER.checkMostRecentCSVFile()
+    CSVdataPath = csvFileDateChecker.checkMostRecentCSVFile()
     
     with open(CSVdataPath, "a", newline='') as file:
         writer = csv.writer(file)
