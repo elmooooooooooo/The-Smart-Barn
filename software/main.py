@@ -1,5 +1,15 @@
 import csv, random, datetime, json, os
 
+
+# importeer rpi modules
+DHT11aangesloten = True
+try:
+    import gpiozero
+    import Adafruit_DHT
+except:
+    print("Kon gpiozero niet inladen. Waarschijnlijk Windows.")
+    DHT11aangesloten = False
+
 # libraries voor api
 from flask import Flask
 from flask_cors import CORS
@@ -21,10 +31,16 @@ def randomAlgorithm(previousNumber):
     if not newNumber in range(0, 101):
        newNumber = previousNumber
     return newNumber     
-    
 
-randomTemp = 0
-randomMoist = 90
+def returnDHT11():
+    vocht, temp = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 4)
+    print(f"Huidige vocht / temp: {vocht}/{temp}")
+    return vocht, temp
+
+
+
+temp = 0
+vocht = 90
 
 ##################################################################################
 """
@@ -82,7 +98,7 @@ csvFileDateChecker = CSVfileDateChecker()
 
 @APP.route("/", methods=["GET"])
 def index():
-    global randomTemp, randomMoist
+    global temp, vocht
     CSVdataPath = csvFileDateChecker.checkMostRecentCSVFilePath()
     
     with open(CSVdataPath, "a", newline='') as file:
@@ -90,22 +106,25 @@ def index():
         
         # tijdelijk worden random getallen gegenereerd
         # for i in range(1440 * 31): # simuleer 31 dagen
-        # randomTemp = random.randint(1, 100)
-        # randomMoist = random.randint(1, 100)
-        randomTemp = randomAlgorithm(randomTemp)
-        randomMoist = randomAlgorithm(randomMoist)
-        fanOn = True if randomTemp > 20 else False
-        fanOn = True if randomMoist > 20 else False
+        # temp = random.randint(1, 100)
+        # vocht = random.randint(1, 100)
+
+        if DHT11aangesloten:
+            vocht, temp = returnDHT11()
+        else:
+            vocht = randomAlgorithm(temp)
+            temp = randomAlgorithm(vocht)
+        fanOn = True if temp > 20 else False
+        fanOn = True if vocht > 20 else False
         if fanOn:
             fanSpeed = random.randint(1, 100)
         else:
             fanSpeed = 0
     
             
-        newData = [datetime.datetime.now(), randomTemp, randomMoist, fanOn, fanSpeed]
-        # writer.writerow(newData)
+        newData = [datetime.datetime.now(), temp, vocht, fanOn, fanSpeed]
+        writer.writerow(newData)
     return newData, 200
 
 if __name__ == "__main__":
-    
     APP.run(host="0.0.0.0")
