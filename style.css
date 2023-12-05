@@ -13,6 +13,7 @@ header{
 
 navigatiebalk{
   display: grid;
+  margin-left: -10px;
 }
 
 body {
@@ -72,7 +73,9 @@ h1 {
 
 h2 {
   margin-left: 40px ;
-  margin-top: 40px;
+  margin-top: 60px;
+  text-align: center;
+
 }
 .disclaimer {
   text-align: center;
@@ -82,7 +85,8 @@ h2 {
 
 #Inleiding{
 
-  text-align: left;
+  text-align: center;
   margin-left: 40px;
   margin-top: 40px;
+  
 }
