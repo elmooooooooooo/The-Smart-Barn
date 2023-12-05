@@ -58,27 +58,31 @@ footer {
   background-color: rgb(110, 110, 110);
   color: black;
   grid-column: 2;
-
   padding-right: 2%;
 }
 
-
-
-h1 {
-  font-size: 400%;
+h1{
   text-align: center;
-  padding: 10px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: rgb(183, 197, 244);
 }
 
 h2{
   text-align: center;
 }
 
-.disclaimer {
-  text-align: center;
-  border-width: 3px;
-  border-style: groove;
+#Teams{
+  display: grid;
+}
+
+#Titel{
+  grid-row: 2;
+  grid-column: 2;
+
+}
+
+#Visualisatie{
+  grid-column: 1;
+}
+
+#Amy{
+  grid-column: 1;
 }

@@ -20,7 +20,7 @@ navigatiebalk{
 body {
   background-color: whitesmoke;
   color: black;
-  margin-top: 39.444px; /*MOET ALTIJD MINIMAAL 40 ZIJN!!!!!!!*/
+  margin-top: 39.444px; /*MOET ALTIJD MINIMAAL 39.444 ZIJN!!!!!!!*/
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -71,7 +71,7 @@ h1 {
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
-  background-color: rgb(183, 197, 244);
+  background-color: rgb(183, 197, 244)
 }
 
 h2 {
