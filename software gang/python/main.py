@@ -42,7 +42,7 @@ class CSVfileDateChecker():
     def __init__(self) -> None:
         pass
     
-    def checkMostRecentCSVFile(self):
+    def checkMostRecentCSVFilePath(self):
         with open(JSONFILEPATH) as filepath:
             self.setupFileData = json.load(filepath)
         
@@ -51,16 +51,17 @@ class CSVfileDateChecker():
         date_time = str(datetime.datetime.now()).split(" ")
         self.date = date_time[0].split("-")
         self.time = date_time[1].split(":")
+        
         return self.checkIfCSVFileIsOutdated()
 
     def checkIfCSVFileIsOutdated(self):
         if self.creationTime["date"][1] != self.date[1]: # check als recentste CSV file van deze maand is
-            CSVdataPath = self.makeNewCSVFile()
+            CSVdataPath = self.makeNewCSVFileAndPath()
         else:
             CSVdataPath = f"data_{self.date[0]}-{self.date[1]}.csv"
         return CSVdataPath
         
-    def makeNewCSVFile(self):
+    def makeNewCSVFileAndPath(self):
         newCSVdataPath = f"data_{self.date[0]}-{self.date[1]}.csv"
         self.creationTime["date"] = self.date
         self.creationTime["time"] = self.time
@@ -82,7 +83,7 @@ csvFileDateChecker = CSVfileDateChecker()
 @APP.route("/", methods=["GET"])
 def index():
     global randomTemp, randomMoist
-    CSVdataPath = csvFileDateChecker.checkMostRecentCSVFile()
+    CSVdataPath = csvFileDateChecker.checkMostRecentCSVFilePath()
     
     with open(CSVdataPath, "a", newline='') as file:
         writer = csv.writer(file)

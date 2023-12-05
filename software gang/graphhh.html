@@ -5,6 +5,8 @@
 	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 	<script type="text/javascript">
+		
+		
 		const grapLines = {
 			grap1temp: 0,
 			grap1hum: 1,
@@ -22,10 +24,14 @@
 		}
 
 		function checkBox(grapID) {
-			
+			console.log(temperatureChart);
 		}
 
-		counter = 0;
+		function checkWhichChartIsVisable() {
+			checkWhichChartIsVisable
+		}
+
+		var counter = 0;
 		function getDataAndPlace(dataPoints, chart) {
 			$.getJSON("http://172.16.1.228:5000", function (data) {// 
 				// $.getJSON("http://192.168.0.246:5000", function (data) {
@@ -54,12 +60,15 @@
 		window.onload = function () {
 			var temperatureDataPoints = [];
 			var humidityDataPoints = [];
+			
+
+			
 
 			var temperatureChart = new CanvasJS.Chart("temperatureChartContainer", {
 				title: {
 					text: "Data of the last 24 hours"
 				},
-				data: [{
+				data:  [{
 					type: "line",
 					dataPoints: humidityDataPoints,
 
@@ -88,6 +97,8 @@
 				}
 
 			});
+			
+			checkWhichChartIsVisable();
 			getDataAndPlace(temperatureDataPoints, temperatureChart);
 			getDataAndPlace(humidityDataPoints, humidityChart);
 
@@ -101,9 +112,9 @@
 	<div id="temperatureChartContainer" style="height: 300px; width: 100%;"></div>
 	<div class="checkBoxContainer">
 		<label>display temperature</label>
-		<input type="checkbox" class="checkBox" name="checkBox" , onchange="checkBox(grapLines.grap1temp)" checked>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox(grapLines.grap1temp)" checked>
 		<label>display humidity</label>
-		<input type="checkbox" class="checkBox" name="checkBox" , onchange="checkBox(grapLines.grap1hum)" checked>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox(grapLines.grap1hum)" checked>
 	</div>
 	<div id="humidityChartContainer" style="height: 300px; width: 100%;"></div>
 
