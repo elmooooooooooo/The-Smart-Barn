@@ -1,12 +1,11 @@
 import csv, random, datetime, json, os
 
-
 # importeer rpi modules
-DHT11aangesloten = True
+DHT11aangesloten = True # TODO verander naam
 try:
     import gpiozero
     import Adafruit_DHT
-except:
+except ModuleNotFoundError:
     print("Kon gpiozero niet inladen. Waarschijnlijk Windows.")
     DHT11aangesloten = False
 
@@ -123,7 +122,7 @@ def index():
     
             
         newData = [datetime.datetime.now(), temp, vocht, fanOn, fanSpeed]
-        writer.writerow(newData)
+        # writer.writerow(newData)
     return newData, 200
 
 if __name__ == "__main__":

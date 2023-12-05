@@ -29,8 +29,9 @@
 
 		var counter = 0;
 		function getAndPlaceDataOnChart(dataPoints, chart, graphID) {
-			$.getJSON("http://172.16.1.228:5000", function (data) {// 
-				// $.getJSON("http://192.168.0.246:5000", function (data) {
+			// $.getJSON("http://172.16.1.228:5000", function (data) { // school
+				// $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
+				$.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
 				const currentDateTime = new Date()
 				let hours = currentDateTime.getHours();
 				hours = always2TimeDigits(hours);
@@ -146,8 +147,9 @@
 <body>
 	<div id="chartContainerPerMinute">
 		<button>Hide Temperature</button>
-		<div id="chartPerMinute" style="height: 300px; width: 100%;"></div>
 	</div>
+	<div id="chartPerMinute" style="height: 300px; width: 100%;"></div>
+
 	<div class="checkBoxContainer">
 		<label>display temperature</label>
 		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1temp')" checked>
