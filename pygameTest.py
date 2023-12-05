@@ -10,18 +10,8 @@ info = pygame.display.Info()
 pygame.display.set_caption("the smart barn")
 
 
-richtlijnen = {
-    "goed": {
-        "kleur": (0,255,0)
-    },
-    "matig": {
-        "kleur": (255, 255, 0)
-    },
-    "slecht": {
-        "kleur": (255, 0, 0)
-    }
-}
 unitRange = setup["range"]
+kleuren = setup["kleuren"]
 
 XasVerschil = unitRange["x-as"][1] - unitRange["x-as"][0]
 unitXas = 500 / XasVerschil
@@ -58,12 +48,12 @@ print(behaagelijkVlak)
 
 while True:
     clock.tick(10)
-    display.fill(richtlijnen["slecht"]["kleur"])
+    display.fill(kleuren["slecht"])
     
     
-    pygame.draw.polygon(display, richtlijnen["matig"]["kleur"], behaagelijkVlak)
+    pygame.draw.polygon(display, kleuren["matig"], behaagelijkVlak)
 
-    rect = pygame.draw.polygon(display, richtlijnen["goed"]["kleur"], ideaalVlak)
+    rect = pygame.draw.polygon(display, kleuren["goed"], ideaalVlak)
     
     a = pygame.image.tostring(display, 'RGB')
     
