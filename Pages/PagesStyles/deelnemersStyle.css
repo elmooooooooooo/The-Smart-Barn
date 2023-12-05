@@ -16,6 +16,7 @@ body {
   color: black;
   margin: 0px;
   text-align: left;
+  margin-top: 40px; /*MOET MINIMAAL 40 ZIJN!!!!!!!!!!!!!!!!!!!!!!! */
 }
 
 navigatiebalk {
@@ -70,6 +71,10 @@ h1 {
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: rgb(183, 197, 244);
+}
+
+h2{
+  text-align: center;
 }
 
 .disclaimer {
