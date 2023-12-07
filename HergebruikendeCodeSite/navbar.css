@@ -3,11 +3,15 @@ navigatiebalk{
   margin-left: -10px;
   background-color: rgb(110, 110, 110);
   padding-bottom: 10px;
+  position: fixed;
+  width: 100vw;
+  height: 4vh;
 }
 
 #column1{
     text-align: left;
     word-spacing: 5px;
+    grid-row: 1;
     grid-column: 1;
     background-color: rgb(110, 110, 110);
     color: white;
@@ -26,7 +30,9 @@ navigatiebalk{
     word-spacing: 10px;
     background-color: rgb(110, 110, 110);
     color: black;
+    grid-row: 1;
     grid-column: 2;
-    padding-right: 2%;
+    padding-right: 1%;
+    padding-top: 1%;
 }
   
