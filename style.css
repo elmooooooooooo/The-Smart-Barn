@@ -4,6 +4,17 @@
   transition: 300ms;
 }
 
+#titelInFoto{
+  width: 100%;
+  height: 100%;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  background-image: url(/Foto/FotoStal.jpg);
+}
+
 header{
   margin-bottom: 20px;
   position: fixed;
@@ -21,8 +32,7 @@ body {
   background-color: whitesmoke;
   color: black;
   margin-top: 39.444px; /*MOET ALTIJD MINIMAAL 39.444 ZIJN!!!!!!!*/
-  margin-left: 0px;
-  margin-right: 0px;
+  margin: 0px;
 }
 
 footer {
@@ -90,5 +100,9 @@ h2 {
   text-align: center;
   margin-left: 40px;
   margin-top: 40px;
+  
+}
+
+@media (max-width: 1000px) {
   
 }
