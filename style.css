@@ -81,7 +81,8 @@ h1 {
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
-  background-color: rgb(183, 197, 244)
+  background-color: rgb(183, 197, 244);
+  color:rgb(183, 197, 244);
 }
 
 h2 {
@@ -98,11 +99,10 @@ h2 {
 #Inleiding{
 
   text-align: center;
-  margin-left: 40px;
   margin-top: 40px;
   
 }
 
 @media (max-width: 1000px) {
-  
+
 }
