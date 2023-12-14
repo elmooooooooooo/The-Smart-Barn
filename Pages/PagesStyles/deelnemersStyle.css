@@ -2,27 +2,64 @@
   font-family: "Times New Roman", Times, serif;
   scroll-behavior: smooth;
   transition: 300ms;
-  margin: 0;
+  margin: 0px;
+}
+
+h1{
+  font-size: 200%;
+}
+
+h2{
+  font-size: 200%;
+}
+
+#DeelnemersPaginaTitel{
+  background-color: rgb(110, 110, 110);
+}
+
+#DeelnemersPaginaTitel h1{
+  margin-top: 4vh;
+  font-size: 600%;
+
+  color: white;
+  text-align: center;
 }
 
 #VisualisatieTitel{
-  margin-top: 5vh;
   text-align: center;
   background-color: rgb(183, 197, 244);
+  color: white;
+  font-size: 200%;
 }
 
 #HardwareTitel{
   text-align: center;
   background-color: rgb(13,110,253);
+  color: white;
+  font-size: 200%;
+
 }
 
 #SoftwareTitel{
   text-align: center;
   background-color: rgb(25,135,84);
+  color: white;
+  font-size: 200%;
+
+}
+
+#BegeleidersTitel{
+  text-align: center;
+  background-color: rgb(200, 200, 200);
+  color: white;
+  font-size: 200%;
+
 }
 
 #Visualisatie{
   display: grid;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #Hardware{
@@ -31,56 +68,98 @@
 
 #Software{
   display: grid;
+  margin-bottom: 10px
+}
+
+#Begeldeiders{
+  display: grid;
+  margin: 10px;
 }
 
 #Amy{
   grid-column: 1;
-  border-style: solid;
-  border-width: 5px;
+  /* width: 49vw; */
 
   text-align: center;
+}
+
+#AmyInfo{
+  font-size: 140%;
 }
 
 #Tycho{
   grid-column: 2;
-  border-style: solid;
-  border-width: 5px;
+  /* width: 49vw; */
 
   text-align: center;
+}
+
+#TychoInfo{
+  font-size: 140%;
 }
 
 #Mo{
   grid-column: 1;
+  /* width: 49vw; */
+
   text-align: center;
-  border-style: solid;
-  border-width: 5px;
+}
+
+#MoInfo{
+  font-size: 140%;
 }
 
 #Vince{
   grid-column: 2;
+  /* width: 49vw; */
+
   text-align: center;
-  border-style: solid;
-  border-width: 5px;
+}
+
+#VinceInfo{
+  font-size: 140%;
 }
 
 #Zaka{
   grid-column: 1;
+  /* width: 49vw; */
+
   text-align: center;
-  border-style: solid;
-  border-width: 5px;
+}
+
+#ZakaInfo{
+  font-size: 140%;
 }
 
 #Sem{
   grid-column: 2;
+  /* width: 49vw; */
+
   text-align: center;
-  border-style: solid;
-  border-width: 5px;
 }
 
-h1{
-  font-size: 400%;
+#SemInfo{
+  font-size: 140%;
 }
 
-h2{
-  font-size: 200%;
+#Colson{
+  grid-column: 1;
+  /* width: 49vw; */
+
+  text-align: center;
+}
+
+#ColsonInfo{
+  font-size: 140%;
+}
+
+#Clijsters{
+  grid-column: 2;
+  /* width: 49vw; */
+
+  text-align: center;
+}
+
+#ClijstersInfo{
+  font-size: 140%;
 }
