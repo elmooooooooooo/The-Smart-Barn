@@ -114,6 +114,13 @@ def index():
         else:
             vocht = randomAlgorithm(temp)
             temp = randomAlgorithm(vocht)
+
+        if vocht == None:
+            vocht = -1
+            
+        if temp == None:
+            temp = -1
+
         fanOn = True if temp > 20 else False
         fanOn = True if vocht > 20 else False
         if fanOn:
@@ -121,10 +128,10 @@ def index():
         else:
             fanSpeed = 0
     
-            
-        newData = [datetime.datetime.now(), temp, vocht, fanOn, fanSpeed]
-        writer.writerow(newData)
+        dateTime = datetime.datetime.now()
+        newData = str([dateTime, temp, vocht, fanOn, fanSpeed])
+        # writer.writerow(newData)
     return newData, 200
 
 if __name__ == "__main__":
-    APP.run(host="0.0.0.0")
+    APP.run()
