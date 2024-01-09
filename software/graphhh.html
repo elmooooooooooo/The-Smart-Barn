@@ -29,9 +29,9 @@
 
 		var counter = 0;
 		function getAndPlaceDataOnChart(dataPoints, chart, graphID) {
-			$.getJSON("http://127.0.0.1:5000", function (data) {
-			    //$.getJSON("http://172.16.1.228:5000", function (data) {// 
-				// $.getJSON("http://192.168.0.246:5000", function (data) {
+			// $.getJSON("http://172.16.1.228:5000", function (data) { // school
+				// $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
+				$.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
 				const currentDateTime = new Date()
 				let hours = currentDateTime.getHours();
 				hours = always2TimeDigits(hours);
@@ -40,9 +40,7 @@
 				let seconds = currentDateTime.getSeconds(); // seconds will be removed in final release
 				seconds = always2TimeDigits(seconds) // same for this
 				var currentTime = `${hours}.${minutes}.${seconds}`
-
-				console.log(data);
-				if (graphType[graphID]){
+				if (graphType[graphID]) {
 					yData = parseInt(data[1])
 				} else {
 					yData = -10
@@ -50,14 +48,14 @@
 				dataPoints.push({
 					x: counter, y: yData, label: currentTime
 				});
-			
+
 				if (dataPoints.length > 100) {
 					dataPoints.splice(0, 1)
 				}
 				console.log(graphType[graphID])
-				
+
 				chart.render();
-				
+
 				counter++;
 				setTimeout(() => {
 					getAndPlaceDataOnChart(dataPoints, chart, graphID)
@@ -65,25 +63,29 @@
 			});
 		}
 		window.onload = function () {
+			var temperatureDataPointsPerMinute = [];
+			var humidityDataPointsPerMinute = [];
+
 			var temperatureDataPointsPerHour = [];
 			var humidityDataPointsPerHour = [];
+
 			var temperatureDataPointsPerDay = [];
 			var humidityDataPointsPerDay = [];
 
 
 
 
-			var chartPerHour = new CanvasJS.Chart("temperatureChartContainer", {
+			var chartPerMinute = new CanvasJS.Chart("chartPerMinute", {
 				title: {
 					text: "Data of the last hour"
 				},
 				data: [{
 					type: "line",
-					dataPoints: temperatureDataPointsPerHour,
+					dataPoints: temperatureDataPointsPerMinute,
 
 				}, {
 					type: "line",
-					dataPoints: humidityDataPointsPerHour
+					dataPoints: humidityDataPointsPerMinute
 				}],
 
 				axisY: {
@@ -91,32 +93,51 @@
 					maximum: 100
 				}
 
-			}); var chartPerDay = new CanvasJS.Chart("humidityChartContainer", {
+			});
+			var chartperHour = new CanvasJS.Chart("chartPerHour", {
 				title: {
 					text: "Data of the last 24 hours"
 				},
 				data: [{
 					type: "line",
-					dataPoints: temperatureDataPointsPerDay,
-
-				}, 
-			{
-				type: "line",
-				dataPoints: humidityDataPointsPerDay
-			}],
+					dataPoints: temperatureDataPointsPerHour,
+				},
+				{
+					type: "line",
+					dataPoints: humidityDataPointsPerHour
+				}],
 				axisY: {
 					minimum: 0,
 					maximum: 100
 				}
-
 			});
 
-			getAndPlaceDataOnChart(temperatureDataPointsPerHour, chartPerHour, 'graph1temp');
-			getAndPlaceDataOnChart(humidityDataPointsPerHour, chartPerHour, 'graph1hum');
+			var chartperDay = new CanvasJS.Chart("chartPerDay", {
+				title: {
+					text: "Data of the last year"
+				},
+				data: [{
+					type: "line",
+					dataPoints: temperatureDataPointsPerDay,
+				},
+				{
+					type: "line",
+					dataPoints: humidityDataPointsPerDay
+				}],
+				axisY: {
+					minimum: 0,
+					maximum: 100
+				}
+			});
 
-			getAndPlaceDataOnChart(temperatureDataPointsPerDay, chartPerDay, 'graph2temp');
-			getAndPlaceDataOnChart(humidityDataPointsPerDay, chartPerDay, 'graph3hum');
+			getAndPlaceDataOnChart(temperatureDataPointsPerMinute, chartPerMinute, 'graph1temp');
+			getAndPlaceDataOnChart(humidityDataPointsPerMinute, chartPerMinute, 'graph1hum');
 
+			getAndPlaceDataOnChart(temperatureDataPointsPerHour, chartperHour, 'graph2temp');
+			getAndPlaceDataOnChart(humidityDataPointsPerHour, chartperHour, 'graph2hum');
+
+			getAndPlaceDataOnChart(temperatureDataPointsPerDay, chartperDay, 'graph3temp');
+			getAndPlaceDataOnChart(humidityDataPointsPerDay, chartperDay, 'graph3hum');
 		}
 
 	</script>
@@ -124,14 +145,19 @@
 </head>
 
 <body>
-	<div id="temperatureChartContainer" style="height: 300px; width: 100%;"></div>
+	<div id="chartContainerPerMinute">
+		<button>Hide Temperature</button>
+	</div>
+	<div id="chartPerMinute" style="height: 300px; width: 100%;"></div>
+
 	<div class="checkBoxContainer">
 		<label>display temperature</label>
 		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1temp')" checked>
 		<label>display humidity</label>
 		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1hum')" checked>
 	</div>
-	<div id="humidityChartContainer" style="height: 300px; width: 100%;"></div>
+	<div id="chartPerHour" style="height: 300px; width: 100%;"></div>
+	<div id="chartPerDay" style="height: 300px; width: 100%;"></div>
 
 </body>
 
