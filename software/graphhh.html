@@ -30,8 +30,9 @@
 		var counter = 0;
 		function getAndPlaceDataOnChart(dataPoints, chart, graphID) {
 			// $.getJSON("http://172.16.1.228:5000", function (data) { // school
-				// $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
-				$.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+			// $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
+			//$.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+			$.getJSON("http://127.0.0.1:5000", function (data) { // lokaal	
 				const currentDateTime = new Date()
 				let hours = currentDateTime.getHours();
 				hours = always2TimeDigits(hours);

@@ -10,7 +10,7 @@ except ModuleNotFoundError:
     DHT11aangesloten = False
 
 # libraries voor api
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 APP = Flask(__name__)
@@ -128,9 +128,9 @@ def index():
             fanSpeed = 0
     
             
-        newData = [datetime.datetime.now(), temp, vocht, fanOn, fanSpeed]
+        newData = (datetime.datetime.now(), temp, vocht, fanOn, fanSpeed)
         # writer.writerow(newData)
-    return newData, 200
+    return jsonify(newData), 200
 
 if __name__ == "__main__":
     APP.run()
