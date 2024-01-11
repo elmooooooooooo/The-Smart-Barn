@@ -2,100 +2,41 @@
   font-family: "Times New Roman", Times, serif;
   scroll-behavior: smooth;
   transition: 300ms;
+  margin: 0px;
 }
 
 body {
   background-color: whitesmoke;
   color: black;
+  margin: 0;
+  padding: 0px;
 }
 
-header {
-  text-align: right;
-  word-spacing: 10px;
-  color: black;
-}
-
-footer {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-size: 85%;
+#titelInFoto{
+  height: 25vh;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0;
   text-align: center;
-  color: black;
-  background-color: rgb(183, 197, 244);
-  margin-bottom: 10px;
-}
-
-a:hover {
-  font-style: italic;
-  color: green;
+  background-image: url(/Foto/FotoStal.jpg);
+  background-size: cover;
 }
 
 h1 {
-  font-size: 400%;
+  font-size: 600%;
   text-align: center;
-  padding: 10px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: rgb(183, 197, 244);
+  color:rgb(134, 124, 226);
 }
 
-.inhoudsTabelGeheel {
-  display: grid;
-  align-items: center;
-  width: 75vw;
-  background-color: rgb(241, 240, 240);
-  padding-top: 10px;
-}
-.inhoudsTabel {
-  justify-self: center;
-  grid-row: 1;
-  grid-column: 1;
-  display: block;
-}
-
-a.boer {
-  grid-row: 1;
-  grid-column: 2;
-  justify-items: end;
-  width: 40vw;
-}
-
-#lijn {
-  background-color: black;
-  width: 75vw;
-  margin-top: 10px;
-
-  height: 3px;
-}
-
-.main {
-  width: 75vw;
-  background-color: rgb(236, 237, 237);
-}
-
-.text {
-  padding: 2vw;
-}
-
-.disclaimer {
+h2 {
+  margin-top: 60px;
   text-align: center;
-  border-width: 3px;
-  border-style: groove;
 }
 
-#test {
-  display: flex;
-  justify-content: center;
-}
-
-img.Genk {
-  margin-left: -55px;
-}
-
-#genkTitel {
-  display: block;
-}
-.contact {
-  margin-top: 5px;
-  margin-bottom: 10px;
+#Inleiding{
+  text-align: center;
+  margin-top: 40px;
+  padding-bottom: 40px;
 }
