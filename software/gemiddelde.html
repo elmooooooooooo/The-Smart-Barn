@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Average Calculator</title>
+</head>
+<body>
+    <div id="text"></div> <br>
+    <button onclick="Calculate()"> Average</button>
+
+    <p id="Gemiddelde"> Gemiddelde </p>
+    <p id="Time"> CurrentTime </p>
+
+    <script>
+        const dataURL = "http://127.0.0.1:5000/";
+
+        requestData();
+
+        setTimeout(Calculate, 15 * 60 * 1000);
+
+        function requestData() {
+            const fetchPromise = fetch(dataURL);
+            fetchPromise.then(response => {
+                return response.json();
+            }).then(data => {
+                transferData(data);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+
+        function transferData(data) {
+            
+            
+            dataArray = Object.entries(data)
+
+            setTimeout(() => {
+                requestData()
+            }, 1000);
+        }
+
+        function Calculate(Array) {
+            Array = dataArray
+            var number1 = Array[1][1]
+            var number2 = Array[2][1]
+            currentTime = Array[0][1]
+
+            
+
+
+            let Calculate = (number1 + number2) / 2
+            
+
+            console.log(Calculate)
+            
+
+            
+            document.getElementById("Gemiddelde").innerHTML = Calculate
+            document.getElementById("Time").innerHTML = currentTime
+            
+            
+
+        }
+
+    </script>
+</body>
+</html>
