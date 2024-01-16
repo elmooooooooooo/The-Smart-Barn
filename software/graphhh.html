@@ -4,8 +4,20 @@
 <head>
 	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+	<script type="text/javascript" src="average.js"></script>
 	<script type="text/javascript">
 
+		var previousHour = getHour();
+		var previousDay = getDay();
+		var counter = 0
+		var temperatureDataPointsPerMinute = [];
+		var humidityDataPointsPerMinute = [];
+
+		var temperatureDataPointsPerHour = [];
+		var humidityDataPointsPerHour = [];
+
+		var temperatureDataPointsPerDay = [];
+		var humidityDataPointsPerDay = [];
 
 		let graphType = {
 			"graph1temp": true,
@@ -27,53 +39,109 @@
 			graphType[graphID] = !graphType[graphID]
 		}
 
-		var counter = 0;
-		function getAndPlaceDataOnChart(dataPoints, chart, graphID) {
-			// $.getJSON("http://172.16.1.228:5000", function (data) { // school
+		function getDataDateString() {
+			const currentDateTime = new Date()
+			let hours = currentDateTime.getHours();
+			hours = always2TimeDigits(hours);
+			let minutes = currentDateTime.getMinutes();
+			minutes = always2TimeDigits(minutes);
+			////
+			let seconds = currentDateTime.getSeconds(); // seconds will be removed in final release
+			seconds = always2TimeDigits(seconds); // same for this
+			return `${hours}, ${minutes}, ${seconds}`;
+		}
+
+		function getHour() {
+			var hour = new Date;
+			return hour.getSeconds() // wordt verandert naar uur
+		}
+
+		function getDay() {
+			var day = new Date;
+			return day.getMinutes()
+		}
+
+
+		function checkIfNewHour() {
+			console.log(getHour(), previousHour);
+			if (getHour() != previousHour) {
+				previousHour = getHour();
+				return true;
+			}
+			return false;
+		}
+
+		function checkIfNewDay() {
+			if (getDay() != previousDay) {
+				previousDay = getDay();
+				return true;
+			}
+			return false;
+		}
+
+
+		function getAndPlaceMinuteData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, minuteChart, hourChart, dayChart) {
+			$.getJSON("http://172.16.114.131:5000", function (data) { // school
 				// $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
-				$.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
-				const currentDateTime = new Date()
-				let hours = currentDateTime.getHours();
-				hours = always2TimeDigits(hours);
-				let minutes = currentDateTime.getMinutes();
-				minutes = always2TimeDigits(minutes);
-				let seconds = currentDateTime.getSeconds(); // seconds will be removed in final release
-				seconds = always2TimeDigits(seconds) // same for this
-				var currentTime = `${hours}.${minutes}.${seconds}`
-				if (graphType[graphID]) {
-					yData = parseInt(data[1])
-				} else {
-					yData = -10
-				}
-				dataPoints.push({
-					x: counter, y: yData, label: currentTime
+				// $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+				// if (graphType[graphID]) {
+				var yData = parseInt(data[1])
+				// } else {
+				// 	yData = -10
+				// }
+				console.log(dataPointsPerMinute)
+				dataPointsPerMinute.push({
+					x: counter, y: yData, label: getDataDateString()
 				});
 
-				if (dataPoints.length > 100) {
-					dataPoints.splice(0, 1)
+				if (dataPointsPerMinute.length > 60) {
+					dataPointsPerMinute.splice(0, 1)
 				}
-				console.log(graphType[graphID])
 
-				chart.render();
+				minuteChart.render();
+
+				if (checkIfNewHour()) {
+					getAndPlaceHourData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, hourChart, dayChart)
+				}
 
 				counter++;
 				setTimeout(() => {
-					getAndPlaceDataOnChart(dataPoints, chart, graphID)
+					getAndPlaceMinuteData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, minuteChart, hourChart, dayChart)
 				}, 100);
-			});
+			})
 		}
+
+		function getAndPlaceHourData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, hourChart, dayChart) {
+			// if (graphType[graphID]) {
+				yData = parseInt(averageOfList(dataPointsPerMinute));
+			// } else {
+			// 	yData = -10
+			// }
+			dataPointsPerHour.push({
+				x: counter, y: yData, label: getDataDateString()
+			});
+
+			if (dataPointsPerHour.length > 24) {
+				dataPointsPerHour.splice(0, 1);
+			}
+			hourChart.render();
+		}
+
+		function getAndPlaceDayData(dataPointsPerHour, dataPointsPerDay, dayChart) {
+			yData = parseInt(averageOfList(dataPointsPerHour));
+
+			dataPointsPerDay.push({
+				x: counter, y: yData, label: getDataDateString()
+			})
+
+			if (dataPointsPerDay.length > 365) {
+				dataPointsPerDay.splice(0, 1);
+			}
+			dayChart.render();
+		}
+
+
 		window.onload = function () {
-			var temperatureDataPointsPerMinute = [];
-			var humidityDataPointsPerMinute = [];
-
-			var temperatureDataPointsPerHour = [];
-			var humidityDataPointsPerHour = [];
-
-			var temperatureDataPointsPerDay = [];
-			var humidityDataPointsPerDay = [];
-
-
-
 
 			var chartPerMinute = new CanvasJS.Chart("chartPerMinute", {
 				title: {
@@ -130,14 +198,16 @@
 				}
 			});
 
-			getAndPlaceDataOnChart(temperatureDataPointsPerMinute, chartPerMinute, 'graph1temp');
-			getAndPlaceDataOnChart(humidityDataPointsPerMinute, chartPerMinute, 'graph1hum');
+			// getAndPlaceMinuteData(chartPerMinute, chartperHour, chartperDay, temperatureDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay);
+			// getAndPlaceMinuteData(chartPerMinute, chartperHour, chartperDay, humidityDataPointsPerMinute, humidityDataPointsPerHour, humidityDataPointsPerDay);
+			getAndPlaceMinuteData(temperatureDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay, chartPerMinute, chartperHour, chartperDay);
+			getAndPlaceMinuteData(humidityDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay, chartPerMinute, chartperHour, chartperDay);
 
-			getAndPlaceDataOnChart(temperatureDataPointsPerHour, chartperHour, 'graph2temp');
-			getAndPlaceDataOnChart(humidityDataPointsPerHour, chartperHour, 'graph2hum');
+			// getAndPlaceHourData(temperatureDataPointsPerHour, chartperHour, 'graph2temp');
+			// getAndPlaceHourData(humidityDataPointsPerHour, chartperHour, 'graph2hum');
 
-			getAndPlaceDataOnChart(temperatureDataPointsPerDay, chartperDay, 'graph3temp');
-			getAndPlaceDataOnChart(humidityDataPointsPerDay, chartperDay, 'graph3hum');
+			// getAndPlaceDayData(temperatureDataPointsPerDay, chartperDay, 'graph3temp');
+			// getAndPlaceDayData(humidityDataPointsPerDay, chartperDay, 'graph3hum');
 		}
 
 	</script>
@@ -145,19 +215,29 @@
 </head>
 
 <body>
-	<div id="chartContainerPerMinute">
-		<button>Hide Temperature</button>
-	</div>
 	<div id="chartPerMinute" style="height: 300px; width: 100%;"></div>
-
 	<div class="checkBoxContainer">
 		<label>display temperature</label>
-		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1temp')" checked>
-		<label>display humidity</label>
 		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1hum')" checked>
+		<label>display humidity</label>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1temp')" checked>
 	</div>
+
 	<div id="chartPerHour" style="height: 300px; width: 100%;"></div>
+	<div class="checkBoxContainer">
+		<label>display temperature</label>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph2hum')" checked>
+		<label>display humidity</label>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph2temp')" checked>
+	</div>
+
 	<div id="chartPerDay" style="height: 300px; width: 100%;"></div>
+	<div class="checkBoxContainer">
+		<label>display temperature</label>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph3hum')" checked>
+		<label>display humidity</label>
+		<input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph3temp')" checked>
+	</div>
 
 </body>
 

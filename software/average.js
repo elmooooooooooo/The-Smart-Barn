@@ -1,5 +1,8 @@
 function averageOfList(list) {
-    const sumOfList = list.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    var sumOfList = 0;
+    for (index = 0; index < list.length; index++) {
+        sumOfList += list[index]["y"];
+    }
     return sumOfList / list.length;
 }
 
