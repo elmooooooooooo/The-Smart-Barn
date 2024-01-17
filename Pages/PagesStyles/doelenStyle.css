@@ -6,20 +6,20 @@
 }
 
 #DoelenPaginaTitel{
-  margin-top: 4vh;
-  background-color: rgb(110, 110, 110);
+  margin-top: 7vh;
+  background-color: white;
+  margin-bottom: 4vh;
 }
 
 #DoelenPaginaTitel h1{
   font-size: 600%;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 #HoofdDoel h2{
-  text-align: center;
-  background-color: blueviolet;
-  color: white;
+  text-align: left;
+  /* background-color: blueviolet; */
 }
 
 #HoofdDoelInfo{
