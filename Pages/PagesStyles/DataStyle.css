@@ -1,0 +1,13 @@
+* {
+    font-family: "Times New Roman", Times, serif;
+    scroll-behavior: smooth;
+    transition: 300ms;
+    margin: 0px;
+  }
+
+h3{
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    font-size: 200%;
+    text-align: center;
+}

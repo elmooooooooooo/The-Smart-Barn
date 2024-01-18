@@ -24,6 +24,16 @@ body {
   background-size: cover;
 }
 
+#Quote{
+  text-align:center;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  color: lightsalmon;
+
+  font-size: 2vw;
+}
+
 h1 {
   font-size: 600%;
   text-align: center;
@@ -31,12 +41,12 @@ h1 {
 }
 
 h2 {
-  margin-top: 60px;
+  margin-top: 2vh;
   text-align: center;
 }
 
 #Inleiding{
   text-align: center;
-  margin-top: 40px;
-  padding-bottom: 40px;
+  margin-top: 1vh;
+  padding-bottom: 1vh;
 }
