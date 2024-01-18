@@ -9,8 +9,9 @@
 
 
 #controllerTitel{
-  font-size: 150%;
-  text-align: left;
+  padding-top: 6vh;
+  font-size: 200%;
+  text-align: center;
 
   color: black;
 }
@@ -35,10 +36,9 @@
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
-  padding-left: 50vw;
-  width: 50vw;
+  width: 10vw;
   margin-top: -22px;
   padding: 16px;
   /* color: white; */
@@ -57,14 +57,14 @@
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.1);
 }
 
 /* Caption text */
 .text {
   color:black;
   font-size: 15px;
-  padding: 8px 12px;
+  padding-bottom: 2vh;
   position: absolute;
   bottom: 8px;
   width: 100%;
