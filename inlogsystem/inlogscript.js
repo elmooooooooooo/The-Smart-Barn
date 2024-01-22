@@ -5,8 +5,8 @@ const loginInfo = {
 
 // Function to handle login
 function login() {
-    const emailinput = document.getElementById("email")
-    const passwordinput = document.getElementById("password")
+    const emailinput = document.getElementById("email").value
+    const passwordinput = document.getElementById("password").value
     const email = emailinput
     const password = passwordinput
     console.log(email,password)
@@ -21,5 +21,4 @@ function login() {
     }
 }
 
-// Example usage
-login();
+// script is gefixt, groetjes sem
