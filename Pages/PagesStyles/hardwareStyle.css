@@ -24,6 +24,7 @@
   position: relative;
   margin: auto;
   margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 /* Hide the images by default */
@@ -37,7 +38,7 @@
   /* position: absolute; */
   top: 50%;
   width: 10vw;
-  margin-top: -22px;
+  margin-top: 3vh;
   padding: 16px;
   /* color: white; */
   font-weight: bold;
@@ -62,7 +63,8 @@
 .text {
   color:black;
   font-size: 15px;
-  padding-bottom: 2vh;
+  padding-bottom: 1vh;
+  margin-bottom: 1vh;
   position: absolute;
   bottom: 8px;
   width: 100%;
@@ -83,7 +85,7 @@
   cursor: pointer;
   height: 15px;
   width: 15px;
-  margin: 0 2px;
+  margin: 0;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
