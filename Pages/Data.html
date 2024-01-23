@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/HergebruikendeCodeSite/navbar.js" type="text/javascript" defer></script>
     <script src="/HergebruikendeCodeSite/Disclaimer.js" type="text/javascript" defer></script>
-    <link rel="stylesheet", type="text/css", href="/Pages/PagesStyles/DataStyle.css" >
+    <link rel="stylesheet" , type="text/css" , href="/Pages/PagesStyles/DataStyle.css">
+
+    <!-- canvas code -->
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+    <!-- <script src="/software/importGraph.js" defer></script> -->
+    <script type="text/javascript" src="/software/js/average.js"></script>
+    <script type="text/javascript" src="/software/js/timeCalculations.js"></script>
+    <script type="text/javascript" src="/software/js/grapDataProcessor.js"></script>
+    <script type="text/javascript" src="/software/js/_graph.js"></script>
+
     <title>The Smart Barn: Data</title>
 </head>
+
 <body>
     <navigatiebalk></navigatiebalk>
     <h3>Data</h3>
+    <graphBlock>
+        <div id="chartPerMinute" style="height: 300px; width: 100%;"></div>
+        <div class="checkBoxContainer">
+            <label>display temperature</label>
+            <input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1hum')" checked>
+            <label>display humidity</label>
+            <input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph1temp')" checked>
+        </div>
+
+        <div id="chartPerHour" style="height: 300px; width: 100%;"></div>
+        <div class="checkBoxContainer">
+            <label>display temperature</label>
+            <input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph2hum')" checked>
+            <label>display humidity</label>
+            <input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph2temp')" checked>
+        </div>
+
+        <div id="chartPerDay" style="height: 300px; width: 100%;"></div>
+        <div class="checkBoxContainer">
+            <label>display temperature</label>
+            <input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph3hum')" checked>
+            <label>display humidity</label>
+            <input type="checkbox" class="checkBox" name="checkBox" onchange="checkBox('graph3temp')" checked>
+        </div>
+    </graphBlock>
     <disclaimer></disclaimer>
 
 </body>
+
 </html>

@@ -5,6 +5,3 @@ function averageOfList(list) {
     }
     return sumOfList / list.length;
 }
-
-var arr = [1, 2, 4]
-arr.redu
