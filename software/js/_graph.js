@@ -22,9 +22,6 @@ let graphType = {
     "graph3hum": true
 }
 
-let newHourCheck = [false, false];
-let newDayCheck = [false, false];
-
 function renderEverything() {
     chartPerMinute.options.data[0].visible = graphType["graph1temp"];
     chartPerMinute.options.data[1].visible = graphType["graph1hum"];
@@ -44,8 +41,77 @@ function checkBox(graphID) {
     renderEverything()
 }
 
+function pushData(list, data) {
+    var yData = parseInt(data)
+    list.push({
+        x: counter, y: yData, label: getDataDateString()
+    });
+}
+
+function dataListOverflowProtection(list, maxLength) {
+    if (list.length > maxLength) {
+        list.splice(0, 1)
+    }
+}
+
+function getAndPlaceMinuteData(minuteChart, hourChart, dayChart) {
+    $.getJSON("http://172.16.114.131:5000", function (data) { // school
+    // $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
+        // $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+        pushData(temperatureDataPointsPerMinute, data[1])
+        pushData(humidityDataPointsPerMinute, data[2])
+
+        dataListOverflowProtection(temperatureDataPointsPerMinute, 60)
+        dataListOverflowProtection(humidityDataPointsPerMinute, 60)
+        
+        minuteChart.options.data[0].visible = graphType["graph1temp"];
+        minuteChart.options.data[1].visible = graphType["graph1hum"];
+        minuteChart.render();
+
+        if (checkIfNewHour()) {
+            getAndPlaceHourData(hourChart, dayChart);    
+        }
+   
+
+        counter++;
+        setTimeout(() => {
+            getAndPlaceMinuteData(minuteChart, hourChart, dayChart)
+        }, 100);
+    })
+}
+
+function getAndPlaceHourData(hourChart, dayChart) {
+    
+    pushData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute))
+    pushData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute))
+
+    dataListOverflowProtection(temperatureDataPointsPerHour, 24)
+    dataListOverflowProtection(humidityDataPointsPerHour, 24)
+    
+    hourChart.options.data[0].visible = graphType["graph2temp"];
+    hourChart.options.data[1].visible = graphType["graph2hum"];
+    hourChart.render();
+
+    if (checkIfNewDay()) {
+        getAndPlaceDayData(dayChart);
+    }
+}
+
+function getAndPlaceDayData(dayChart) {
+
+    pushData(temperatureDataPointsPerDay, averageOfList(temperatureDataPointsPerHour))
+    pushData(humidityDataPointsPerDay, averageOfList(temperatureDataPointsPerHour))
+
+    dataListOverflowProtection(temperatureDataPointsPerDay, 365)
+    dataListOverflowProtection(humidityDataPointsPerDay, 365)
+
+    dayChart.options.data[0].visible = graphType["graph3temp"];
+    dayChart.options.data[1].visible = graphType["graph3hum"];
+    dayChart.render();
+}
+
 window.onload = function () {
-    console.log("hello");
+    console.log("data chart started");
     chartPerMinute = new CanvasJS.Chart("chartPerMinute", {
         title: {
             text: "Data of the last hour"
@@ -105,6 +171,5 @@ window.onload = function () {
     });
 
     renderEverything();
-    getAndPlaceMinuteData(temperatureDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay, chartPerMinute, chartPerHour, chartPerDay, 'graph1temp', 'graph2temp', 'graph3temp', 1);
-    getAndPlaceMinuteData(humidityDataPointsPerMinute, humidityDataPointsPerHour, humidityDataPointsPerDay, chartPerMinute, chartPerHour, chartPerDay, 'graph1hum', 'graph2hum', 'graph3hum', 2);
+    getAndPlaceMinuteData(chartPerMinute, chartPerHour, chartPerDay);
 }
