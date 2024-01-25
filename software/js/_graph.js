@@ -55,23 +55,22 @@ function dataListOverflowProtection(list, maxLength) {
 }
 
 function getAndPlaceMinuteData(minuteChart, hourChart, dayChart) {
-    $.getJSON("http://172.16.114.131:5000", function (data) { // school
+    // $.getJSON("http://172.16.114.131:5000", function (data) { // school
     // $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
-        // $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+    $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
         pushData(temperatureDataPointsPerMinute, data[1])
         pushData(humidityDataPointsPerMinute, data[2])
 
         dataListOverflowProtection(temperatureDataPointsPerMinute, 60)
         dataListOverflowProtection(humidityDataPointsPerMinute, 60)
-        
+
         minuteChart.options.data[0].visible = graphType["graph1temp"];
         minuteChart.options.data[1].visible = graphType["graph1hum"];
         minuteChart.render();
 
         if (checkIfNewHour()) {
-            getAndPlaceHourData(hourChart, dayChart);    
+            getAndPlaceHourData(hourChart, dayChart);
         }
-   
 
         counter++;
         setTimeout(() => {
@@ -81,13 +80,13 @@ function getAndPlaceMinuteData(minuteChart, hourChart, dayChart) {
 }
 
 function getAndPlaceHourData(hourChart, dayChart) {
-    
+
     pushData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute))
     pushData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute))
 
     dataListOverflowProtection(temperatureDataPointsPerHour, 24)
     dataListOverflowProtection(humidityDataPointsPerHour, 24)
-    
+
     hourChart.options.data[0].visible = graphType["graph2temp"];
     hourChart.options.data[1].visible = graphType["graph2hum"];
     hourChart.render();
@@ -108,6 +107,18 @@ function getAndPlaceDayData(dayChart) {
     dayChart.options.data[0].visible = graphType["graph3temp"];
     dayChart.options.data[1].visible = graphType["graph3hum"];
     dayChart.render();
+}
+
+function firstLoadCycle() {
+    if (loadingDone) {
+        console.log(temperatureDataPointsPerMinute);
+        renderEverything();
+        getAndPlaceMinuteData(chartPerMinute, chartPerHour, chartPerDay);
+    } else {
+        setTimeout(() => {
+            firstLoadCycle();
+        }, 100);
+    }
 }
 
 window.onload = function () {
@@ -169,7 +180,10 @@ window.onload = function () {
             maximum: 100
         }
     });
-
-    renderEverything();
-    getAndPlaceMinuteData(chartPerMinute, chartPerHour, chartPerDay);
+    console.log(`logging file found on ${getFilePath()}`)
+    // console.log(`time started ${}`)
+    getAllData();
+    saveDataInArrays();
+    firstLoadCycle();
+    
 }
