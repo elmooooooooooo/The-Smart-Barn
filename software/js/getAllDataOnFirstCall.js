@@ -48,16 +48,16 @@ function saveDataInArrays() {
             pushFromCsvData(temperatureDataPointsPerMinute, index, 1);
             pushFromCsvData(humidityDataPointsPerMinute, index, 2);
 if (temperatureDataPointsPerMinute.length >= 60) {
-pushFromCsvData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute);
+pushFromCsvData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute));
 temperatureDataPointsPerMinute = [];
-pushFromCsvData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute);
+pushFromCsvData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute));
 humidityDataPointsPerMinute = [];
 }
 
 if (temperatureDataPointsPerHour.length >= 24) {
-pushFromCsvData(temperatureDataPointsPerDay, averageOfList(temperatureDataPointsPerHour);
+pushFromCsvData(temperatureDataPointsPerDay, averageOfList(temperatureDataPointsPerHour));
 temperatureDataPointsPerDay = [];
-pushFromCsvData(humidityDataPointsPerDay, averageOfList(humidityDataPointsPerHour);
+pushFromCsvData(humidityDataPointsPerDay, averageOfList(humidityDataPointsPerHour));
 humidityDataPointsPerHour = [];
 }
 
