@@ -44,10 +44,25 @@ function pushFromCsvData(list, csvIndex, dataIndex) {
 
 function saveDataInArrays() {
     if (csvData[0] != undefined) {
-        for (var index = csvData.length - 60; index < csvData.length; index++) {
+        for (var index = 0; index < csvData.length; index++) {
             pushFromCsvData(temperatureDataPointsPerMinute, index, 1);
             pushFromCsvData(humidityDataPointsPerMinute, index, 2);
+if (temperatureDataPointsPerMinute.length >= 60) {
+pushFromCsvData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute);
+temperatureDataPointsPerMinute = [];
+pushFromCsvData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute);
+humidityDataPointsPerMinute = [];
+}
+
+if (temperatureDataPointsPerHour.length >= 24) {
+pushFromCsvData(temperatureDataPointsPerDay, averageOfList(temperatureDataPointsPerHour);
+temperatureDataPointsPerDay = [];
+pushFromCsvData(humidityDataPointsPerDay, averageOfList(humidityDataPointsPerHour);
+humidityDataPointsPerHour = [];
+}
+
             counter++;
+
         }
         console.log(temperatureDataPointsPerMinute);
         loadingDone = true;
