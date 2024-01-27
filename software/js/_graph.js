@@ -57,7 +57,8 @@ function dataListOverflowProtection(list, maxLength) {
 function getAndPlaceMinuteData(minuteChart, hourChart, dayChart) {
     // $.getJSON("http://172.16.114.131:5000", function (data) { // school
     // $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
-    $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+    // $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
+    $.getJSON("http://192.168.0.13:5000", function (data) { 
         pushData(temperatureDataPointsPerMinute, data[1])
         pushData(humidityDataPointsPerMinute, data[2])
 
@@ -109,14 +110,13 @@ function getAndPlaceDayData(dayChart) {
     dayChart.render();
 }
 
-function firstLoadCycle() {
+function firstLoadCycle(minuteChart, hourChart, dayChart) {
     if (loadingDone) {
-        console.log(temperatureDataPointsPerMinute);
         renderEverything();
-        getAndPlaceMinuteData(chartPerMinute, chartPerHour, chartPerDay);
+        getAndPlaceMinuteData(minuteChart, hourChart, dayChart);
     } else {
         setTimeout(() => {
-            firstLoadCycle();
+            firstLoadCycle(minuteChart, hourChart, dayChart);
         }, 100);
     }
 }
@@ -184,6 +184,6 @@ window.onload = function () {
     // console.log(`time started ${}`)
     getAllData();
     saveDataInArrays();
-    firstLoadCycle();
-    
+    // loadingDone = true;
+    firstLoadCycle(chartPerMinute, chartPerHour, chartPerDay);
 }

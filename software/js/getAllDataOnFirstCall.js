@@ -35,31 +35,31 @@ function getAllData() {
     });
 }
 
-function pushFromCsvData(list, csvIndex, dataIndex) {
-    var yData = parseInt(csvData[csvIndex][dataIndex])
+function pushFromCsvData(list, data, date) {
+    var yData = parseInt(data)
     list.push({
-        x: counter, y: yData, label: csvData[csvIndex][0]
+        x: counter, y: yData, label: date
     });
 }
 
 function saveDataInArrays() {
     if (csvData[0] != undefined) {
         for (var index = 0; index < csvData.length; index++) {
-            pushFromCsvData(temperatureDataPointsPerMinute, index, 1);
-            pushFromCsvData(humidityDataPointsPerMinute, index, 2);
-if (temperatureDataPointsPerMinute.length >= 60) {
-pushFromCsvData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute));
-temperatureDataPointsPerMinute = [];
-pushFromCsvData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute));
-humidityDataPointsPerMinute = [];
-}
+            pushFromCsvData(temperatureDataPointsPerMinute, csvData[index][1], csvData[index][0]);
+            pushFromCsvData(humidityDataPointsPerMinute, csvData[index][2], csvData[index][0]);
+            if (temperatureDataPointsPerMinute.length > 60) {
+                pushFromCsvData(temperatureDataPointsPerHour, averageOfList(temperatureDataPointsPerMinute), temperatureDataPointsPerMinute[temperatureDataPointsPerMinute.length - 1]["label"]);
+                temperatureDataPointsPerMinute.splice(0, temperatureDataPointsPerMinute.length)
+                pushFromCsvData(humidityDataPointsPerHour, averageOfList(humidityDataPointsPerMinute), humidityDataPointsPerMinute[humidityDataPointsPerMinute.length - 1]["label"]);
+                humidityDataPointsPerMinute.splice(0, humidityDataPointsPerMinute.length);
+            }
 
-if (temperatureDataPointsPerHour.length >= 24) {
-pushFromCsvData(temperatureDataPointsPerDay, averageOfList(temperatureDataPointsPerHour));
-temperatureDataPointsPerDay = [];
-pushFromCsvData(humidityDataPointsPerDay, averageOfList(humidityDataPointsPerHour));
-humidityDataPointsPerHour = [];
-}
+            if (temperatureDataPointsPerHour.length > 24) {
+                pushFromCsvData(temperatureDataPointsPerDay, averageOfList(temperatureDataPointsPerHour), temperatureDataPointsPerHour[temperatureDataPointsPerHour.length - 1]["label"]);
+                temperatureDataPointsPerHour.splice(0, temperatureDataPointsPerHour.length);
+                pushFromCsvData(humidityDataPointsPerDay, averageOfList(humidityDataPointsPerHour), humidityDataPointsPerHour[humidityDataPointsPerHour.length - 1]["label"]);
+                humidityDataPointsPerHour.splice(0, humidityDataPointsPerHour.length);
+            }
 
             counter++;
 
