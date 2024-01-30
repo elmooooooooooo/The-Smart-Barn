@@ -17,7 +17,7 @@ function login() {
 
     // Check if the provided email and password match the stored loginInfo
     if (emailinput == LoginInfo.email && passwordinput == LoginInfo.password) {
-        window.location.href = "/software/graphhh.html"; 
+        window.location.href = "/pages/Data.html"; 
 
         console.log("Login successful!");
         // If it works forward the user to the next page
