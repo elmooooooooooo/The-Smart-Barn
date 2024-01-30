@@ -17,9 +17,19 @@ APP = Flask(__name__)
 
 CORS(APP, resources={r"/*": {"origins": "*"}})
 
-JSONFILEPATH = "software/setup.json"
+# Pad verschilled op semetic en op wondows
+if os.path.isfile("software/setup.json"):
+    JSONFILEPATH = "software/setup.json" # Windows 
+else:
+    JSONFILEPATH = "setup.json" # semetic
+
 if os.path.isfile(JSONFILEPATH) is False:
-    raise Exception("JSON setup file not found in app directory")
+    raise FileNotFoundError("JSON setup file not found in app directory")
+
+class JsonFileIsEmpty(Exception): ...
+if os.path.getsize(JSONFILEPATH) < 10:
+    raise JsonFileIsEmpty("The Setup file seem to be empty")
+
 
 def randomAlgorithm(previousNumber):
     for i in range(random.randint(1,20)):
@@ -133,4 +143,4 @@ def index():
     return jsonify(newData), 200
 
 if __name__ == "__main__":
-    APP.run()
+    APP.run(host="0.0.0.0")

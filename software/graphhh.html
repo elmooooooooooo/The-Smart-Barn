@@ -7,6 +7,9 @@
 	<script type="text/javascript" src="average.js"></script>
 	<script type="text/javascript">
 
+		var chartPerMinute;
+		var chartPerHour;
+		var chartPerDay;
 		var previousHour = getHour();
 		var previousDay = getDay();
 		var counter = 0
@@ -28,6 +31,21 @@
 			"graph3hum": true
 		}
 
+		let newHourCheck = [false, false];
+		let newDayCheck = [false, false];
+
+		function renderEverything() {
+			chartPerMinute.options.data[0].visible = graphType["graph1temp"];
+			chartPerMinute.options.data[1].visible = graphType["graph1hum"];
+			chartPerMinute.render();
+			chartPerHour.options.data[0].visible = graphType["graph2temp"];
+			chartPerHour.options.data[1].visible = graphType["graph2hum"];
+			chartPerHour.render();
+			chartPerDay.options.data[0].visible = graphType["graph3temp"];
+			chartPerDay.options.data[1].visible = graphType["graph3hum"];
+			chartPerDay.render();
+		}
+
 		function always2TimeDigits(unitToCheck) {
 			if (unitToCheck < 10) {
 				return '0' + unitToCheck;
@@ -36,7 +54,8 @@
 		}
 
 		function checkBox(graphID) {
-			graphType[graphID] = !graphType[graphID]
+			graphType[graphID] = !graphType[graphID];
+			renderEverything()
 		}
 
 		function getDataDateString() {
@@ -63,7 +82,6 @@
 
 
 		function checkIfNewHour() {
-			console.log(getHour(), previousHour);
 			if (getHour() != previousHour) {
 				previousHour = getHour();
 				return true;
@@ -80,16 +98,13 @@
 		}
 
 
-		function getAndPlaceMinuteData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, minuteChart, hourChart, dayChart) {
-			$.getJSON("http://172.16.114.131:5000", function (data) { // school
-				// $.getJSON("http://192.168.0.246:5000", function (data) { // thuis laptop
+		function getAndPlaceMinuteData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, minuteChart, hourChart, dayChart, graphTypePM, graphTypePH, graphTypePD, indexInData) {
+			// $.getJSON("http://172.16.114.131:5000", function (data) { // school
+			$.getJSON("http://172.16.111.160:5000", function (data) { // thuis laptop
 				// $.getJSON("http://192.168.0.221:5000", function (data) { // thuis pc
-				// if (graphType[graphID]) {
-				var yData = parseInt(data[1])
-				// } else {
-				// 	yData = -10
-				// }
-				console.log(dataPointsPerMinute)
+				var yData = parseInt(data[indexInData])
+
+
 				dataPointsPerMinute.push({
 					x: counter, y: yData, label: getDataDateString()
 				});
@@ -97,38 +112,52 @@
 				if (dataPointsPerMinute.length > 60) {
 					dataPointsPerMinute.splice(0, 1)
 				}
-
+				minuteChart.options.data[indexInData - 1].visible = graphType[graphTypePM];
 				minuteChart.render();
 
 				if (checkIfNewHour()) {
-					getAndPlaceHourData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, hourChart, dayChart)
+					newHourCheck = [true, true]
+				}
+				if (newHourCheck[indexInData - 1]) {
+					getAndPlaceHourData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, hourChart, dayChart, graphTypePH, graphTypePD, indexInData);
+					newHourCheck[indexInData - 1] = false;
 				}
 
 				counter++;
 				setTimeout(() => {
-					getAndPlaceMinuteData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, minuteChart, hourChart, dayChart)
+					getAndPlaceMinuteData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, minuteChart, hourChart, dayChart, graphTypePM, graphTypePH, graphTypePD, indexInData)
 				}, 100);
 			})
 		}
 
-		function getAndPlaceHourData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, hourChart, dayChart) {
-			// if (graphType[graphID]) {
-				yData = parseInt(averageOfList(dataPointsPerMinute));
-			// } else {
-			// 	yData = -10
-			// }
+		function getAndPlaceHourData(dataPointsPerMinute, dataPointsPerHour, dataPointsPerDay, hourChart, dayChart, graphTypePH, graphTypePD, indexInData) {
+			if (graphType[graphTypePH]) {
+			}
+			var yData = parseInt(averageOfList(dataPointsPerMinute));
+
 			dataPointsPerHour.push({
 				x: counter, y: yData, label: getDataDateString()
 			});
+			console.log(dataPointsPerHour);
 
 			if (dataPointsPerHour.length > 24) {
 				dataPointsPerHour.splice(0, 1);
 			}
+			if (checkIfNewDay()) {
+				newDayCheck = [true, true];
+			}
+			if (newDayCheck[indexInData - 1]) {
+				getAndPlaceDayData(dataPointsPerHour, dataPointsPerDay, dayChart, graphTypePD, indexInData);
+				newDayCheck[indexInData - 1] = false;
+			}
+
+			hourChart.options.data[indexInData - 1].visible = graphType[graphTypePH];
 			hourChart.render();
 		}
 
-		function getAndPlaceDayData(dataPointsPerHour, dataPointsPerDay, dayChart) {
-			yData = parseInt(averageOfList(dataPointsPerHour));
+		function getAndPlaceDayData(dataPointsPerHour, dataPointsPerDay, dayChart, graphTypePD, indexInData) {
+
+			var yData = parseInt(averageOfList(dataPointsPerHour));
 
 			dataPointsPerDay.push({
 				x: counter, y: yData, label: getDataDateString()
@@ -137,22 +166,26 @@
 			if (dataPointsPerDay.length > 365) {
 				dataPointsPerDay.splice(0, 1);
 			}
+
+			dayChart.options.data[indexInData - 1].visible = graphType[graphTypePD];
 			dayChart.render();
 		}
 
 
 		window.onload = function () {
 
-			var chartPerMinute = new CanvasJS.Chart("chartPerMinute", {
+			chartPerMinute = new CanvasJS.Chart("chartPerMinute", {
 				title: {
 					text: "Data of the last hour"
 				},
 				data: [{
 					type: "line",
+					visible: graphType["graph1temp"],
 					dataPoints: temperatureDataPointsPerMinute,
 
 				}, {
 					type: "line",
+					visible: graphType["graph1hum"],
 					dataPoints: humidityDataPointsPerMinute
 				}],
 
@@ -162,7 +195,7 @@
 				}
 
 			});
-			var chartperHour = new CanvasJS.Chart("chartPerHour", {
+			chartPerHour = new CanvasJS.Chart("chartPerHour", {
 				title: {
 					text: "Data of the last 24 hours"
 				},
@@ -180,12 +213,13 @@
 				}
 			});
 
-			var chartperDay = new CanvasJS.Chart("chartPerDay", {
+			chartPerDay = new CanvasJS.Chart("chartPerDay", {
 				title: {
 					text: "Data of the last year"
 				},
 				data: [{
 					type: "line",
+
 					dataPoints: temperatureDataPointsPerDay,
 				},
 				{
@@ -198,16 +232,9 @@
 				}
 			});
 
-			// getAndPlaceMinuteData(chartPerMinute, chartperHour, chartperDay, temperatureDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay);
-			// getAndPlaceMinuteData(chartPerMinute, chartperHour, chartperDay, humidityDataPointsPerMinute, humidityDataPointsPerHour, humidityDataPointsPerDay);
-			getAndPlaceMinuteData(temperatureDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay, chartPerMinute, chartperHour, chartperDay);
-			getAndPlaceMinuteData(humidityDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay, chartPerMinute, chartperHour, chartperDay);
-
-			// getAndPlaceHourData(temperatureDataPointsPerHour, chartperHour, 'graph2temp');
-			// getAndPlaceHourData(humidityDataPointsPerHour, chartperHour, 'graph2hum');
-
-			// getAndPlaceDayData(temperatureDataPointsPerDay, chartperDay, 'graph3temp');
-			// getAndPlaceDayData(humidityDataPointsPerDay, chartperDay, 'graph3hum');
+			renderEverything();
+			getAndPlaceMinuteData(temperatureDataPointsPerMinute, temperatureDataPointsPerHour, temperatureDataPointsPerDay, chartPerMinute, chartPerHour, chartPerDay, 'graph1temp', 'graph2temp', 'graph3temp', 1);
+			getAndPlaceMinuteData(humidityDataPointsPerMinute, humidityDataPointsPerHour, humidityDataPointsPerDay, chartPerMinute, chartPerHour, chartPerDay, 'graph1hum', 'graph2hum', 'graph3hum', 2);
 		}
 
 	</script>
