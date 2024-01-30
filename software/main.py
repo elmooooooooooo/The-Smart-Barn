@@ -17,7 +17,12 @@ APP = Flask(__name__)
 
 CORS(APP, resources={r"/*": {"origins": "*"}})
 
-JSONFILEPATH = "software/setup.json"
+# Pad verschilled op semetic en op wondows
+if os.path.isfile("software/setup.json"):
+    JSONFILEPATH = "software/setup.json" # Windows 
+else:
+    JSONFILEPATH = "setup.json" # semetic
+
 if os.path.isfile(JSONFILEPATH) is False:
     raise FileNotFoundError("JSON setup file not found in app directory")
 
