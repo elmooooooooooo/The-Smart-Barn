@@ -4,15 +4,25 @@
 <head>
   <link rel="stylesheet" href="/Pages/PagesStyles/style2alt.css">
   <script src="/software/js/inlogscript.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/Pages/PagesStyles/hardwareStyle.css">
+  <link rel = "icon" href =  "/Foto/Barn_icoon.png" type ="image/x-icon">
+  <script src="/HergebruikendeCodeSite/navbar.js" type="text/javascript" defer></script>
+  <script src="/HergebruikendeCodeSite/Disclaimer.js" type="text/javascript" defer></script>
+  <script src="/HergebruikendeCodeSite/slideShowIOT2050.js" type="text/javascript" defer></script>
+
   <title>Login Website</title>
   
 </head>
 <body>
+    <navigatiebalk></navigatiebalk>
     <section>
         <div class="form-box">
             <div class="form-value">
                 <form class="loginform" onsubmit="event.preventDefault();">
                     <h2>Login</h2>
+                    <div class="wrong" id="wrong"></div>
                     <div  class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input id="email" type="email" required>
@@ -27,6 +37,7 @@
                         <label for=""><input id="remember" type="checkbox">Remember Me <br> <a href="#">Forget Password</a></label>
                       
                     </div>
+                    
                     <button onclick="login()">Log in</button>
                 </form>
             </div>
