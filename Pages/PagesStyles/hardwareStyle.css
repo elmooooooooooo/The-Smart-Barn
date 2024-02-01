@@ -11,7 +11,7 @@
   font-size: 200%;
   text-align: center;
 
-  color: black;
+  background-color: rgba(13, 207, 198, 0.582);
 }
 
 #controllerInfo{
@@ -80,10 +80,6 @@
   top: 0;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
-
 /* Fading animation */
 .fade {
   animation-name: fade;
@@ -95,10 +91,82 @@
   to {opacity: 1}
 }
 
+.controllerSpecsCollapsible{
+  background-color: rgba(13, 207, 198, 0.582);
+  cursor: pointer;
+  height: 5vh;
+  width: 100vw;
+  border: 1vh solid lightgray;
+  border-bottom: 0.5vh solid lightgray;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.controllerActive, .controllerSpecsCollapsible{
+  background-color: rgb(13, 207, 198);
+}
+
+.controllerSpecs{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  display: none;
+  overflow: hidden;
+  background-color: rgb(220, 235, 234);
+  border-bottom: 0.5vh solid black;
+}
+
+.controllerSpecsCollapsible::after{
+  content: '\02795';
+  color: whitesmoke;
+  float: right;
+  margin-left: 1vw;
+  font-size: 1vw;
+}
+
+.controllerActive::after{
+  content: '\2796';
+}
+
 #SensorenTitel{
   font-size: 200%;
   text-align: center;
 
-  background-color: darksalmon;
-  color: white;
+  background-color:rgba(13, 207, 198, 0.582);
+}
+
+.controllerPortsCollapsible{
+  background-color: rgba(13, 207, 198, 0.582);
+  cursor: pointer;
+  height: 5vh;
+  width: 100vw;
+  border: 1vh solid lightgray;
+  border-top: 0.5vh solid lightgray;
+  border-bottom: non;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.controllerPortsActive, .controllerPortsCollapsible{
+  background-color: rgb(13, 207, 198);
+}
+
+.controllerPorts{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  display: none;
+  overflow: hidden;
+  background-color: rgb(220, 235, 234);
+  border-bottom: 0.5vh solid black;
+}
+
+.controllerPortsCollapsible::after{
+  content: '\02795';
+  color: whitesmoke;
+  float: right;
+  margin-left: 1vw;
+  font-size: 1vw;
+}
+
+.controllerPortsActive::after{
+  content: '\2796';
 }
