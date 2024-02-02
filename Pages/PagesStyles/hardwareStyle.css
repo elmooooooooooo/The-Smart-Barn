@@ -95,7 +95,7 @@
   background-color: rgba(13, 207, 198, 0.582);
   cursor: pointer;
   height: 5vh;
-  width: 100vw;
+  width: 100%;
   border: 1vh solid lightgray;
   border-bottom: 0.5vh solid lightgray;
   text-align: center;
@@ -138,7 +138,7 @@
   background-color: rgba(13, 207, 198, 0.582);
   cursor: pointer;
   height: 5vh;
-  width: 100vw;
+  width: 100%;
   border: 1vh solid lightgray;
   border-top: 0.5vh solid lightgray;
   border-bottom: non;
@@ -169,4 +169,85 @@
 
 .controllerPortsActive::after{
   content: '\2796';
+}
+
+#TemperatuurSensorTitel h3{
+  font-size: 200%;
+  text-align: center;
+  background-color: rgb(13, 207, 198);
+}
+
+#TemperatuurSensorInfo {
+  text-align: center;
+}
+
+#TemperatuurSensorInfo img{
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+#text{
+  font-size: 200%;
+}
+
+.TemperatuurSensorSpecsCollapsible{
+  width: 100%;
+  height: 5vh;
+  font-size: 1vw;
+  background-color: rgb(13, 207, 198);
+  border: 1vh solid lightgray;
+}
+
+.TemperatuurSensorSpecsCollapsible::after{
+  content: '\02795';
+  float: right;
+}
+
+.TemperatuurSensorSpecsActive::after{
+  content: '\2796';
+}
+
+.TemperatuurSensorSpecs{
+  display: none;
+  background-color: rgb(220, 235, 234);
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-bottom: 0.5vh solid black;
+
+}
+
+#LuchtVochtigheidsSensorTitel{
+  font-size: 200%;
+  text-align: center;
+  background-color: rgb(13, 207, 198);
+}
+
+#LuchtVochtigheidsSensorInfo{
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.LuchtVochtigheidsSensorSpecsCollapsible{
+  width: 100%;
+  height: 5vh;
+  font-size: 1vw;
+  background-color: rgb(13, 207, 198);
+  border: 1vh solid lightgray;
+}
+
+.LuchtVochtigheidsSensorSpecsCollapsible::after{
+  content: '\02795';
+  float: right;
+}
+
+.LuchtVochtigheidsSensorSpecsCollapsibleActive::after{
+  content: '\2796';
+}
+
+.LuchtVochtigheidsSensorSpecs{
+  display: none;
+  background-color: rgb(220, 235, 234);
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-bottom: 0.5vh solid black;
 }
