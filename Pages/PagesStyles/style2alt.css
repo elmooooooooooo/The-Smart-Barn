@@ -22,6 +22,13 @@ menu, footer {
 	font-family:'Times New Roman', Times, serif;
 	border: solid black thin;
 }
+.wrong {
+	color: red;
+	font-size: .9em;
+	display: flex;
+	justify-content: space-between;  
+
+}
 /* Add a black background color to the top navigation */
 .topnav {
 	background-color: rgb(0, 0, 0);
