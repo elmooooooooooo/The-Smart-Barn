@@ -1,0 +1,19 @@
+Disclaimer{
+    text-align: center;
+}
+
+#Disclaimer{
+    background-color: rgb(165, 165, 165);
+
+    
+    padding-top: 1vh;
+}
+
+#links{
+    padding-bottom: 1vh;
+}
+
+#links a{
+    color: white;
+    
+}
