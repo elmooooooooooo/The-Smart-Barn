@@ -134,7 +134,7 @@ def index():
     
             
         newData = (datetime.datetime.now(), temp, vocht, fanOn, fanSpeed)
-        # writer.writerow(newData)
+        writer.writerow(newData)
     return jsonify(newData), 200
 
 if __name__ == "__main__":

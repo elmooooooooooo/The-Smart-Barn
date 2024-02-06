@@ -6,99 +6,129 @@
         <link rel="stylesheet" type="text/css" href="/Pages/PagesStyles/hardwareStyle.css">
         <link rel = "icon" href =  "/Foto/Barn_icoon.png" type ="image/x-icon">
         <script src="/HergebruikendeCodeSite/navbar.js" type="text/javascript" defer></script>
+        <script src="/HergebruikendeCodeSite/Disclaimer.js" type="text/javascript" defer></script>
+        <script src="/HergebruikendeCodeSite/slideShowIOT2050.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/controllerSpecsCollapsible.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/controllerPortsCollapsible.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/temperatuurSensorCollapsible.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/LuchtvochtigheidSensorCollapsible.js" type="text/javascript" defer></script>
 
-        <title>The Smart Barn Project</title>
+        <title>The Smart Barn Project: Hardware</title>
     </head>
-    <header>
-        <navigatiebalk></navigatiebalk>
-    </header>
-    
     <body>
-       
-        <div style="display: flex; justify-content: center;">
-            <div class="inhoudsTabelGeheel">
-                <div class="inhoudsTabel">
-                    <h2>Wat is er te vinden op deze site:</h2>
-                    <ul>
-                        <li><a href="#meedoen">Wie doet er mee aan dit project</a></li>
-                        <li><a href="#gebeuren">Wat moet er gebeuren tijdens dit project</a></li>
-                        <li><a href="#onderdelen">Welke onderdelen zijn er gebruikt</a></li>
-                        <li><a href="#contact">Contact informatie</a></li>
-                    </ul>
-                    <h2>Blog van de deelnemers</h2>
-                    <ul>
-                        <li><a href="https://blog-thesmartbarn.netlify.app/" target="_blank">Blog Van de deelnemers</a></li>
-                    </ul>
-                </div>
-                <a href="https://melkkan.be/", target="_blank" class="boer"><img class="boer" src="/Foto/abf_boer_lindssen.jpg" alt="Drone foto boerderij linsen-Bekers" height="100%", width="100%"></a>
+        <navigatiebalk></navigatiebalk>
+        <div id="controller">
+            <div id="controllerTitel">
+                <h2>controller</h2>
             </div>
-        </div>
-        <!-- schijdingslijn -->
-        <div style="display: flex; justify-content: center;">
-            <div class="main">
-                <div id="lijn"></div>
-    
-                <div class="text">
-    
-                <h2 id="meedoen"><u>Wie Doet er Mee aan dit project</u></h2>
-                <p>Wij zijn leerlingen van 6IICT uit de school Mosa-rt.<br>We hebben de taken in groepen verdeelt dat ons
-                    proces
-                    sneller zou gaan.</p>
-    
-                <h3 id="Visualisatie">Visualisatie: </h3>
-                <p class="auteurs">Amy en Tycho.</p>
-                <p>Werken aan het uitzicht van de website en de human interface.</p>
-    
-                <h3 id="Software">Software: </h3>
-                <p class="auteurs">Sem en Zakaria.</p>
-                <p>Schrijven de code om alles in harmonie samen te laten werken.</p>
-    
-                <h3 id="Heardwear">Hardware: </h3>
-                <p class="auteurs">Vince en Mohcine.</p>
-                <p>Werken aan de sensoren en met het verbinden van de kabels waar het nodig is.</p>
-    
-                <h3 id="Modelbord">Modelbord: </h3>
-                    <p>Leerlingen van de
-                    richting
-                    elektriciteit helpen ons ook met bepaalde dingen van bedrading,<br>
-                    bijvoorbeeld: Ze maken een modelbord en zorgen dat deze werkt zoals de koeienstal<br>
-                    zodat we niet voor iedere test naar de boer hoeven om het programma te testen.</p>
-                <h2 id="gebeuren"><u>Wat moet er gebeuren tijdens dit project</u></h2>
-    
-                <h2 id="onderdelen"><u>Welke onderdelen zijn er gebruikt</u></h2>
-                <p>Siemens IOT 2050</p>
-                <p>Sensoren</p>
-                <p>Server</p>
-                </div>
-                <div id="lijn"></div>
-    
-                <div id="test">
-                    <div id="genkTitel" style="width: 300px;">
-                        <h3><u> De pitch in Genk van de Smartbarn.</u></h3>
-                        <img class="Genk" src="/Foto/Foto_colage_genk.png" alt="momenten van pitch in Genk " height="600" 
-                            width="420">
-                            <p style="text-align: center;"> Vrijdag de 13 de in  Oktober is de klas van 6IICT naar <a href="https://thorpark.be/" target="_blank">Thorpark in Genk</a> geweest om hun Pitch voor te stellen.<br>We mochten onze tafel versieren waar we melkglaasjes aan de mensen konden uitdelen van de boer die we helpen met dit project.<br>Onze pitch ging heel goed! We waren zeer blij en te vreden.<br> Na de pitch waren er mensen die intresse hadden in ons project en wat er allemaal bij ons project komt kijken.
+            <div id="controllerInfo">
+                <!-- Slideshow container -->
+                <div class="slideshow-container">
+
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade">
+                    <img src="/Foto/SiemensIOT2050.webp" style="width:50%">
+                    <div class="text">Siemens IOT 2050</div>
                     </div>
-                </div>        
+                
+                    <div class="mySlides fade">
+                    <img src="/Foto/TopSiemensIOT2050.webp" style="width:50%">
+                    <div class="text">Top vieuw Siemens IOT 2050</div>
+                    </div>
+                
+                    <div class="mySlides fade">
+                    <img src="/Foto/UpperPortsSiemensIOT2050.webp" style="width:50%">
+                    <div class="text">Upper ports of the Siemens IOT 2050</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                    <img src="/Foto/LowerPortsSiemensIOT2050.webp" style="width:50%">
+                    <div class="text">Lower ports of the Siemens IOT 2050</div>
+                    </div>
+                
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <button class="controllerSpecsCollapsible" type="button">Specificaties van de controller</button>
+                <div class="controllerSpecs">
+                    <p>
+                        - Ram: 1GB<br>
+                        - Input voltage: 12/24V DC<br>
+                        - Ouput voltage: 3.3V of 5V<br>
+                        - Operatie Temperatuur: 0&deg;C...50&deg;C<br>
+                        - materiaal behuizing: Plastic<br>
+                        - Dimenties: 37mm X 142mm X 100mm<br>
+
+                    </p>
+                </div>
+
+                <button class="controllerPortsCollapsible" type="button">Poorten op de controller</button>
+                <div class="controllerPorts">
+                    <p>
+                            - 2 x LAN 10/100/1000 Mbps ethernet interface (RJ45)<br>
+                            - 2 x USB v2.0<br>
+                            - 1 x COM (RS232 / 485)<br>
+                            - 1 X DisplayPort<br>
+                            - 1 x mPCIe hardware expencion slot<br>
+                            - ARDUINO UNO R3 shield interface<br>
+                            - Micro SD card<br>
+                            - 20 X Digital inputs<br>
+                            - 6 X Analog inputs<br>
+                    </p>
+                </div>
+             </div>
+        </div>
+
+        <div id="Sensoren">
+            <div id="SensorenTitel">
+                <h2>Sensoren</h2>
+            </div>
+            <div id="SensorenInfo">
+                <div id="TemperatuurSensor">
+                    <div id="TemperatuurSensorTitel">
+                        <h3>Temperatuursensor</h3>
+                    </div>
+                    <div id="TemperatuurSensorInfo">
+                        <img src="/Foto/PT1000.jpg" width="25%" alt="PT1000 Temperatuursensor">
+                        <img src="/Foto/PT1000MetDraden.jpg" width="25%" alt="PT1000 Sensor met draden">
+
+                        <p id="text">PT1000 Temperatuursensor</p>
+
+                        <button class="TemperatuurSensorSpecsCollapsible" type="button">Specificaties van de Temperatuursensor</button>
+                        <div class="TemperatuurSensorSpecs">
+                            <p>
+                                - Temperatuur bereik: -50&deg;C tot 100&deg;C<br>
+                                - Tollerantie: +- 0.1%<br>
+                                - Bedrading: PVC-bekabeling 3*0.25mm&#178;<br>
+                                - Weerstandswaarde: Wit-Bruin:  1000&#8486; (0&deg;C) + 3.8&#8486;/&deg;C<br>
+                                - Weerstandswaarde: Bruin-Groen: 0&#8486;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="LuchtVochtigheidsSensor">
+                    <div id="LuchtVochtigheidsSensorTitel">
+                        <h3>LuchtVochtigheidsSensor</h3>
+                    </div>
+                    <div id="LuchtVochtigheidsSensorInfo">
+                        <img src="/Foto/Luchtvochtigheidssensor.png" width="40%" alt="Luchtvochtigheidssensor">
+                        <p id="text">RV-A-0-5 Luchtvochtigheidssensor</p>
+
+
+                        <button class="LuchtVochtigheidsSensorSpecsCollapsible" type="button">Specificaties van de LuchtVochtigheidsSensor</button>
+                        <div class="LuchtVochtigheidsSensorSpecs">
+                            <p>
+                                - Meetbereik: 0...100%RV<br>
+                                - Naukeurigheid: Bij 23&deg;C: &lt;+- 2% (10...90%RV)<br>
+                                - Responstijd: &lt;10ms<br>
+                                - Stabiliteit: +- 1%RV / jaar<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <disclaimer></disclaimer>
     </body>
-    
-    
-    
-    <footer>
-        <div class="contact">
-            <h3 id="contact">Contact informatie</h3>
-            <p><br><a href="mailto:thesmartbarn@mosa-rt.be">thesmartbarn@mosa-rt.be</a></p>
-        </div>
-    
-        <div class="school-contact">
-            <h3>School contact informatie</h3>
-            <p>Weertersteenweg 135A | Maaseik <br><a href="tel:+3289563059">Telefoonnummer: +32 89 56 30 59 </a><br><a
-                    href="mailto:info@mosa-rt.be">Email: info@mosa-rt.be</a></p>
-        </div>
-    
-    </footer>
-    <div class="disclaimer"">
-        <p>Speel bewust, 18+</p>
-    </div>
