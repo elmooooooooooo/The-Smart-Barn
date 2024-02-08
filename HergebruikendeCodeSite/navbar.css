@@ -1,12 +1,11 @@
 navigatiebalk{
   display: flex;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
   width: 100vw;
-
-  background-color: rgb(247,132,71);
 }
 
 #startPagina{

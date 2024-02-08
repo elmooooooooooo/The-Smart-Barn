@@ -8,6 +8,10 @@
         <script src="/HergebruikendeCodeSite/navbar.js" type="text/javascript" defer></script>
         <script src="/HergebruikendeCodeSite/Disclaimer.js" type="text/javascript" defer></script>
         <script src="/HergebruikendeCodeSite/slideShowIOT2050.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/controllerSpecsCollapsible.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/controllerPortsCollapsible.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/temperatuurSensorCollapsible.js" type="text/javascript" defer></script>
+        <script src="/Pages/PagesStyles/LuchtvochtigheidSensorCollapsible.js" type="text/javascript" defer></script>
 
         <title>The Smart Barn Project: Hardware</title>
     </head>
@@ -46,14 +50,33 @@
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
-                <br>
-                
-                <!-- The dots/circles -->
-                <div style="text-align:center">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
+
+                <button class="controllerSpecsCollapsible" type="button">Specificaties van de controller</button>
+                <div class="controllerSpecs">
+                    <p>
+                        - Ram: 1GB<br>
+                        - Input voltage: 12/24V DC<br>
+                        - Ouput voltage: 3.3V of 5V<br>
+                        - Operatie Temperatuur: 0&deg;C...50&deg;C<br>
+                        - materiaal behuizing: Plastic<br>
+                        - Dimenties: 37mm X 142mm X 100mm<br>
+
+                    </p>
+                </div>
+
+                <button class="controllerPortsCollapsible" type="button">Poorten op de controller</button>
+                <div class="controllerPorts">
+                    <p>
+                            - 2 x LAN 10/100/1000 Mbps ethernet interface (RJ45)<br>
+                            - 2 x USB v2.0<br>
+                            - 1 x COM (RS232 / 485)<br>
+                            - 1 X DisplayPort<br>
+                            - 1 x mPCIe hardware expencion slot<br>
+                            - ARDUINO UNO R3 shield interface<br>
+                            - Micro SD card<br>
+                            - 20 X Digital inputs<br>
+                            - 6 X Analog inputs<br>
+                    </p>
                 </div>
              </div>
         </div>
@@ -63,7 +86,48 @@
                 <h2>Sensoren</h2>
             </div>
             <div id="SensorenInfo">
-                <p>Info over de sensoren</p>
+                <div id="TemperatuurSensor">
+                    <div id="TemperatuurSensorTitel">
+                        <h3>Temperatuursensor</h3>
+                    </div>
+                    <div id="TemperatuurSensorInfo">
+                        <img src="/Foto/PT1000.jpg" width="25%" alt="PT1000 Temperatuursensor">
+                        <img src="/Foto/PT1000MetDraden.jpg" width="25%" alt="PT1000 Sensor met draden">
+
+                        <p id="text">PT1000 Temperatuursensor</p>
+
+                        <button class="TemperatuurSensorSpecsCollapsible" type="button">Specificaties van de Temperatuursensor</button>
+                        <div class="TemperatuurSensorSpecs">
+                            <p>
+                                - Temperatuur bereik: -50&deg;C tot 100&deg;C<br>
+                                - Tollerantie: +- 0.1%<br>
+                                - Bedrading: PVC-bekabeling 3*0.25mm&#178;<br>
+                                - Weerstandswaarde: Wit-Bruin:  1000&#8486; (0&deg;C) + 3.8&#8486;/&deg;C<br>
+                                - Weerstandswaarde: Bruin-Groen: 0&#8486;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="LuchtVochtigheidsSensor">
+                    <div id="LuchtVochtigheidsSensorTitel">
+                        <h3>LuchtVochtigheidsSensor</h3>
+                    </div>
+                    <div id="LuchtVochtigheidsSensorInfo">
+                        <img src="/Foto/Luchtvochtigheidssensor.png" width="40%" alt="Luchtvochtigheidssensor">
+                        <p id="text">RV-A-0-5 Luchtvochtigheidssensor</p>
+
+
+                        <button class="LuchtVochtigheidsSensorSpecsCollapsible" type="button">Specificaties van de LuchtVochtigheidsSensor</button>
+                        <div class="LuchtVochtigheidsSensorSpecs">
+                            <p>
+                                - Meetbereik: 0...100%RV<br>
+                                - Naukeurigheid: Bij 23&deg;C: &lt;+- 2% (10...90%RV)<br>
+                                - Responstijd: &lt;10ms<br>
+                                - Stabiliteit: +- 1%RV / jaar<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <disclaimer></disclaimer>
