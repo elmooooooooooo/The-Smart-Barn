@@ -22,6 +22,68 @@
 #TussenDoelenTitel{
   text-align: center;
   font-size: 1.5vw;
+  grid-row: 1;
 
 }
 
+.TussenDoelen{
+  display: grid;
+}
+
+.TussenDoelenVisualisatie{
+  grid-row: 2;
+}
+
+.TussenDoelenVisualisatieTitel{
+  text-align: center;
+}
+
+.TussenDoelenVisualisatieInfo{
+  display: grid;
+}
+
+.TussenDoelAmy{
+  grid-column: 1;
+  text-align: center;
+}
+
+.TussenDoelTycho{
+  grid-column: 2;
+  text-align: center;
+}
+
+.TussenDoelenHardware{
+  grid-row: 3;
+}
+
+.TussenDoelenHardwareInfo{
+  display: grid;
+}
+
+.TussenDoelMo{
+  grid-column: 1;
+  text-align: center;
+}
+
+.TussenDoelVince{
+  grid-column: 2;
+  text-align: center;
+}
+
+.TussenDoelenSoftware{
+  grid-row: 4;
+}
+
+.TussenDoelenSoftwareInfo{
+  display: grid;
+}
+
+.TussenDoelSem{
+  grid-column: 1;
+  text-align: center;
+}
+
+.TussenDoelZaka{
+  grid-column: 2;
+  text-align: center ;
+}
