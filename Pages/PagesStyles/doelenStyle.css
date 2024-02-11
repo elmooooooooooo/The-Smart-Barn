@@ -5,27 +5,23 @@
   margin: 0px;
 }
 
-#DoelenPaginaTitel{
-  margin-top: 7vh;
-  background-color: white;
-  margin-bottom: 4vh;
-}
+#HoofdDoelTitel{
+  margin-top: 5vh;
 
-#DoelenPaginaTitel h1{
-  font-size: 600%;
   text-align: center;
-  color: black;
-}
-
-#HoofdDoel h2{
-  text-align: center;
+  font-size: 1.5vw;
 }
 
 #HoofdDoelInfo{
   text-align: center;
+  font-size: 1vw;
+
   padding-top: 1vh;
 }
 
-h2{
-  font-size: 200%;
+#TussenDoelenTitel{
+  text-align: center;
+  font-size: 1.5vw;
+
 }
+
