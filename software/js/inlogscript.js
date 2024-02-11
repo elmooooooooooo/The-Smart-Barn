@@ -28,6 +28,11 @@ function login() {
     
 }
 
+function forgot() {
+    alert("Er is een email verstuurd met de nieuwe wachtwoord!")
+
+}
+
 
 
 // script is gefixt, groetjes sem

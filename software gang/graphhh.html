@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+	<script type="text/javascript">
+		const grapLines = {
+			grap1temp: 0,
+			grap1hum: 1,
+			grap2temp: 2,
+			grap2hum: 3,
+			grap3temp: 4,
+			grap3hum: 5
+		}
+		
+		function always2TimeDigits(unitToCheck) {
+			if (unitToCheck < 10) {
+				return '0' + unitToCheck;
+			};
+			return unitToCheck;
+		}
+
+		function checkBox(grapID) {
+			
+		}
+
+		counter = 0;
+		function getDataAndPlace(dataPoints, chart) {
+			$.getJSON("http://172.16.1.228:5000", function (data) {// 
+				// $.getJSON("http://192.168.0.246:5000", function (data) {
+				const currentDateTime = new Date()
+				let hours = currentDateTime.getHours();
+				hours = always2TimeDigits(hours);
+				let minutes = currentDateTime.getMinutes();
+				minutes = always2TimeDigits(minutes);
+				let seconds = currentDateTime.getSeconds(); // seconds will be removed in final release
+				seconds = always2TimeDigits(seconds) // same for this
+				var currentTime = `${hours}.${minutes}.${seconds}`
+
+				dataPoints.push({
+					x: counter, y: parseInt(data[1]), label: currentTime
+				});
+				if (dataPoints.length > 100) {
+					dataPoints.splice(0, 1)
+				}
+				chart.render();
+				counter++;
+				setTimeout(() => {
+					getDataAndPlace(dataPoints, chart)
+				}, 100);
+			});
+		}
+		window.onload = function () {
+			var temperatureDataPoints = [];
+			var humidityDataPoints = [];
+
+			var temperatureChart = new CanvasJS.Chart("temperatureChartContainer", {
+				title: {
+					text: "Data of the last 24 hours"
+				},
+				data: [{
+					type: "line",
+					dataPoints: humidityDataPoints,
+
+				}, {
+					type: "line",
+					dataPoints: temperatureDataPoints
+				}],
+
+				axisY: {
+					minimum: 0,
+					maximum: 100
+				}
+
+			}); var humidityChart = new CanvasJS.Chart("humidityChartContainer", {
+				title: {
+					text: "Luchtvochtigheid"
+				},
+				data: [{
+					type: "line",
+					dataPoints: humidityDataPoints,
+
+				}],
+				axisY: {
+					minimum: 0,
+					maximum: 100
+				}
+
+			});
+			getDataAndPlace(temperatureDataPoints, temperatureChart);
+			getDataAndPlace(humidityDataPoints, humidityChart);
+
+		}
+	
+	</script>
+
+</head>
+
+<body>
+	<div id="temperatureChartContainer" style="height: 300px; width: 100%;"></div>
+	<div class="checkBoxContainer">
+		<label>display temperature</label>
+		<input type="checkbox" class="checkBox" name="checkBox" , onchange="checkBox(grapLines.grap1temp)" checked>
+		<label>display humidity</label>
+		<input type="checkbox" class="checkBox" name="checkBox" , onchange="checkBox(grapLines.grap1hum)" checked>
+	</div>
+	<div id="humidityChartContainer" style="height: 300px; width: 100%;"></div>
+
+</body>
+
+</html>

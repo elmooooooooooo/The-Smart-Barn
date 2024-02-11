@@ -2,17 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/Pages/PagesStyles/style2alt.css">
+  <link rel="stylesheet" href="/Pages/PagesStyles/login.css">
   <script src="/software/js/inlogscript.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/Pages/PagesStyles/hardwareStyle.css">
   <link rel = "icon" href =  "/Foto/Barn_icoon.png" type ="image/x-icon">
   <script src="/HergebruikendeCodeSite/navbar.js" type="text/javascript" defer></script>
   <script src="/HergebruikendeCodeSite/Disclaimer.js" type="text/javascript" defer></script>
-  <script src="/HergebruikendeCodeSite/slideShowIOT2050.js" type="text/javascript" defer></script>
 
-  <title>Login Website</title>
+  <title>Login Website </title>
   
 </head>
 <body>
@@ -34,11 +32,11 @@
                         <label for="">Password</label>
                     </div>
                     <div class="forget">
-                        <label for=""><input id="remember" type="checkbox">Remember Me <br> <a href="#">Forget Password</a></label>
+                        <label for=""><input id="remember" type="checkbox">Remember Me <br> <a href="#" onclick="forgot()">Forget Password</a></label>
                       
                     </div>
                     
-                    <button onclick="login()">Log in</button>
+                    <button id="loginButton" onclick="login()">Log in</button>
                 </form>
             </div>
         </div>
