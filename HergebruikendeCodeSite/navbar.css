@@ -1,3 +1,7 @@
+:root {
+  --amountOfNavbarButtons: 4;
+}
+
 navigatiebalk{
   display: flex;
   position: fixed;
@@ -8,25 +12,51 @@ navigatiebalk{
   width: 100vw;
 }
 
-#startPagina{
+nav {
   display: flex;
-  width: 100vw;
 }
 
-navigatiebalk button{
-    width: 100%;
+#hamburgerMenu {
+  width: 10vw;
+  display: none;
+}
+
+.navbutton, .navbutton_active{
+    width: calc(70vw / var(--amountOfNavbarButtons)); /*  bereken de breedte van een navbutton door de breedte te delen door het aantal navbuttons */
     height: 5.5vh;
     border: 0px;
+    color: black;
 
-    background-color: rgb(238, 144, 94);
-    font-size: 150%;
+    font-size: 4vh;
     font-weight: bold;
+    background-color: rgb(238, 144, 94);
+  }
+
+  #startPagina{
+    display: flex;
+    width: 30vw
+  }
+
+  #home {
+    width: 100%;
+  }
+
+
+
+.navbutton_active {
+  color: white;
+
 }
 
+nav:has(.navbutton:hover) .navbutton:not(:hover) {
+  font-size: 2.5vh;
+}
 
-navigatiebalk button:hover{
+.navbutton:hover{
   background-color: gray;
 }
+
+
 
 .startpage:hover + .startpage{
   background-color: gray;
@@ -42,4 +72,29 @@ navigatiebalk button:hover{
 
 .active, .navigatiebalk button:hover {
   background-color: gray;
+}
+
+@media (max-width: 1000px) {
+  #hamburgerMenu {
+    display: block;
+  }
+
+  .navbutton {
+    display: none;
+  }
+
+  #startPagina {
+    width: 90vw;
+  }
+
+  
+  .startpage {
+    width: 80%;
+    display: block;
+    text-align: left;
+  }
+  .icon {
+    width: 20%;
+    text-align: center;
+  }
 }
