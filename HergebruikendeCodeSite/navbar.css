@@ -17,7 +17,9 @@ nav {
 }
 
 #hamburgerMenu {
-  width: 10vw;
+  background-color: rgb(238, 144, 94);
+  border: 0;
+  width: 50px;
   display: none;
 }
 
