@@ -37,7 +37,6 @@ h2{
   background-color: rgb(13,110,253);
   color: white;
   font-size: 200%;
-
 }
 
 #SoftwareTitel{
@@ -45,15 +44,13 @@ h2{
   background-color: rgb(25,135,84);
   color: white;
   font-size: 200%;
-
 }
 
 #BegeleidersTitel{
   text-align: center;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(255, 12, 223);
   color: white;
   font-size: 200%;
-
 }
 
 #Visualisatie{
@@ -78,8 +75,6 @@ h2{
 
 #Amy{
   grid-column: 1;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -89,8 +84,6 @@ h2{
 
 #Tycho{
   grid-column: 2;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -100,8 +93,6 @@ h2{
 
 #Mo{
   grid-column: 1;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -111,8 +102,6 @@ h2{
 
 #Vince{
   grid-column: 2;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -122,8 +111,6 @@ h2{
 
 #Zaka{
   grid-column: 1;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -133,8 +120,6 @@ h2{
 
 #Sem{
   grid-column: 2;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -144,8 +129,6 @@ h2{
 
 #Colson{
   grid-column: 1;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
@@ -155,8 +138,6 @@ h2{
 
 #Clijsters{
   grid-column: 2;
-  /* width: 49vw; */
-
   text-align: center;
 }
 
