@@ -1,35 +1,42 @@
 * {
-    font-family: "Times New Roman", Times, serif;
-    scroll-behavior: smooth;
-    transition: 300ms;
-    margin: 0px;
-    padding: 0;
-  }
+  font-family: "Times New Roman", Times, serif;
+  scroll-behavior: smooth;
+  transition: 300ms;
+  margin: 0px;
+  padding: 0;
+}
 
 
-#controllerTitel{
-  padding-top: 6vh;
+.title {
+  font-size: 3em;
+  text-align: center;
+  background-color: rgba(28, 179, 139, 0.582);
+}
+
+.subtitle {
   font-size: 200%;
   text-align: center;
-  background-color:  rgba(28, 179, 139, 0.582);
+  background-color: rgba(28, 179, 139, 0.582);
 }
 
-#controllerInfo{
-  text-align: center;
+.imageDescribingText {
+  font-size: 200%;
 }
+
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
   position: relative;
-  margin-left: 27vw;
+  /* margin-left: 27vw; */
   margin-top: 2vh;
   margin-bottom: 2vh;
+
 }
 
-#moreControllerInfo
-{
+#moreControllerInfo {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
 }
 
 /* Hide the images by default */
@@ -38,7 +45,8 @@
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   /* position: absolute; */
   top: 50%;
@@ -60,13 +68,14 @@
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.1);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Caption text */
 .text {
-  color:black;
+  color: black;
   font-size: 1vw;
   padding-bottom: 1vh;
   margin-bottom: 3vh;
@@ -92,174 +101,65 @@
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
-.controllerSpecsCollapsible{
-  display: flex;
+/* end of image carrousel */
+
+
+/* collapsible list */
+.collapsibleListButton {
+  display: grid;
+  justify-self: center;
   background-color: rgba(245, 150, 87, 0.884);
   cursor: pointer;
+  width: calc(100% - 2vh);
   height: 5vh;
-  width: 100%;
-  border: 1vh solid white;
-  border-top: 0.5vh solid white;
-  justify-content: center;
-  text-align: center;
-  font-size: 1.5vw;
+  margin: 1vh;
+  padding: 1vh;
+  padding-left: calc(1vh + 32px);
+  border: 0;
+  grid-template-columns: 1fr 32px;
+  font-size: 2.5vh;
+  grid-row: 1;
 }
 
-#controllerSpecs{
-  grid-row: 1;
+.collapsibleList {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  overflow: hidden;
+  background-color: white;
+}
+
+.collapsibleIcon {
+  grid-column: 2;
+  justify-self: right;
+  color: rgb(190, 188, 188);
+
+  font-size: 2.5vh;
+}
+
+/* grid placing of controller info */
+#controllerSpecsHead,
+#controllerPortsHead {
+  grid-row: 2;
+}
+
+#controllerSpecsHead {
   grid-column: 1;
 }
 
-.controllerSpecsHead{
-  justify-content: right;
-  width: 100%;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  display: none;
-  overflow: hidden;
-  background-color: white;
-}
-
-.controllerSpecsCollapsible::after{
-  justify-content: right;
-  content: '\02795';
-  color: rgb(190, 188, 188);
-  float: right;
-  margin-left: 1vw;
-  margin-top: -0.2vw;
-  font-size: 1.5vw;
-}
-
-.controllerActive::after{
-  content: '\2796';
-}
-
-#controllerPorts{
-  grid-row: 1;
+#controllerPortsHead {
   grid-column: 2;
 }
 
-.controllerPortsCollapsible{
-  display: flex;
-  background-color: rgba(248, 154, 91, 0.884);
-  cursor: pointer;
-  height: 5vh;
-  width: 100%;
-  border: 1vh solid white;
-  border-top: 0.5vh solid white;
-  font-size: 1.5vw;
-  justify-content: center;
-}
-
-.controllerPortsHead{
-  width: 100%;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  display: none;
-  overflow: hidden;
-  background-color: white;
-}
-
-.controllerPortsCollapsible::after{
-  content: '\02795';
-  color: whitesmoke;
-  float: right;
-  margin-left: 1vw;
-  margin-top: -0.2vw;
-  font-size: 1.5vw;
-}
-
-.controllerPortsActive::after{
-  content: '\2796';
-}
-
-#SensorenTitel{
-  font-size: 200%;
-  text-align: center;
-  background-color:  rgba(28, 179, 139, 0.582);
-}
-
-#TemperatuurSensorTitel h3{
-  margin-top: 2vh;
-  font-size: 200%;
-  text-align: center;
-  background-color: rgba(28, 179, 139, 0.582);
-}
-
-#TemperatuurSensorInfo {
-  text-align: center;
-}
-
-#TemperatuurSensorInfo img{
+#TemperatuurSensorInfo img {
   margin-top: 2vh;
   margin-bottom: 2vh;
-}
-
-#text{
-  font-size: 200%;
-}
-
-.TemperatuurSensorSpecsCollapsible{
-  width: 100%;
-  height: 5vh;
-  font-size: 1vw;
-  background-color:  rgba(248, 154, 91, 0.884);
-  border: 1vh solid white;
-}
-
-.TemperatuurSensorSpecsCollapsible::after{
-  content: '\02795';
-  float: right;
-}
-
-.TemperatuurSensorSpecsActive::after{
-  content: '\2796';
-}
-
-.TemperatuurSensorSpecs{
-  display: none;
-  background-color: white;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  border-bottom: 0.5vh solid black;
-
-}
-
-#LuchtVochtigheidsSensorTitel{
-  font-size: 200%;
-  text-align: center;
-  background-color: rgba(28, 179, 139, 0.582);
-}
-
-#LuchtVochtigheidsSensorInfo{
-  text-align: center;
-  margin-top: 2vh;
-}
-
-.LuchtVochtigheidsSensorSpecsCollapsible{
-  width: 100%;
-  height: 5vh;
-  font-size: 1vw;
-  background-color:  rgba(248, 154, 91, 0.884);
-  border: 1vh solid white;
-}
-
-.LuchtVochtigheidsSensorSpecsCollapsible::after{
-  content: '\02795';
-  float: right;
-}
-
-.LuchtVochtigheidsSensorSpecsCollapsibleActive::after{
-  content: '\2796';
-}
-
-.LuchtVochtigheidsSensorSpecs{
-  display: none;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  border-bottom: 0.5vh solid white;
 }
