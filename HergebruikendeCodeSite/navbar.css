@@ -2,7 +2,7 @@
   --amountOfNavbarButtons: 4;
 }
 
-/* navigatiebalk{
+navigatiebalk{
   display: flex;
   position: fixed;
   z-index: 10;
@@ -10,14 +10,30 @@
   left: 0;
   right: 0;
   width: 100vw;
-} */
+}
 
 nav {
   display: flex;
 }
 
 #mobileMenu {
+  width: 40vw;
+  height: calc(100vh - 5.5vh);
   display: none;
+  top: 5.5vh;
+  z-index: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+
+
+  background-color: wheat;
+}
+
+.mobile_navbutton {
+  cursor: pointer;
+  width: 40vw;
+
 }
 
 #hamburgerMenu {
@@ -25,27 +41,33 @@ nav {
   border: 0;
   width: 50px;
   display: none;
+  cursor: pointer;
+
 }
 
-.navbutton, .navbutton_active{
-    width: calc(70vw / var(--amountOfNavbarButtons)); /*  bereken de breedte van een navbutton door de breedte te delen door het aantal navbuttons */
-    height: 5.5vh;
-    border: 0px;
-    color: black;
+.navbutton,
+.navbutton_active {
+  width: calc(70vw / var(--amountOfNavbarButtons));
+  /*  bereken de breedte van een navbutton door de breedte te delen door het aantal navbuttons */
+  height: 5.5vh;
+  border: 0px;
+  color: black;
 
-    font-size: 4vh;
-    font-weight: bold;
-    background-color: rgb(238, 144, 94);
-  }
+  font-size: 4vh;
+  font-weight: bold;
+  background-color: rgb(238, 144, 94);
+  cursor: pointer;
 
-  #startPagina{
-    display: flex;
-    width: 30vw
-  }
+}
 
-  #home {
-    width: 100%;
-  }
+#startPagina {
+  display: flex;
+  width: 30vw
+}
+
+#home {
+  width: 100%;
+}
 
 
 
@@ -58,25 +80,26 @@ nav:has(.navbutton:hover) .navbutton:not(:hover) {
   font-size: 2.5vh;
 }
 
-.navbutton:hover{
+.navbutton:hover {
   background-color: gray;
 }
 
 
 
-.startpage:hover + .startpage{
+.startpage:hover+.startpage {
   background-color: gray;
 }
 
-#startPagina:hover > *{
+#startPagina:hover>* {
   background-color: gray;
 }
 
-.icon{
+.icon {
   width: 3vw;
 }
 
-.active, .navigatiebalk button:hover {
+.active,
+.navigatiebalk button:hover {
   background-color: gray;
 }
 
@@ -90,17 +113,18 @@ nav:has(.navbutton:hover) .navbutton:not(:hover) {
   }
 
   #startPagina {
-    width: 90vw;
+    width: calc(100vw - 50px);
   }
 
-  
+
   .startpage {
-    width: 80%;
+    width: 100%;
     display: block;
     text-align: left;
   }
+
   .icon {
-    width: 20%;
+    width: 50px;
     text-align: center;
   }
 }
