@@ -13,9 +13,8 @@ body {
 }
 
 #titelInFoto{
-  width: 100vw;
-  padding-top: 25vh;
-  padding-bottom: 25vh;
+  max-width: 100%;
+  height: auto;
   padding-left: 0px;
   padding-right: 0px;
   margin: 0;
