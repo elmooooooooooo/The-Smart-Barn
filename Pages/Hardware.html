@@ -11,9 +11,6 @@
   <script src="/HergebruikendeCodeSite/Disclaimer.js" type="text/javascript" defer></script>
   <script src="/HergebruikendeCodeSite/slideShowIOT2050.js" type="text/javascript" defer></script>
   <script src="/Pages/PagesStyles/collapseList.js" type="text/javascript" defer></script>
-  <script src="/Pages/PagesStyles/controllerPortsCollapsible.js" type="text/javascript" defer></script>
-  <script src="/Pages/PagesStyles/temperatuurSensorCollapsible.js" type="text/javascript" defer></script>
-  <script src="/Pages/PagesStyles/LuchtvochtigheidSensorCollapsible.js" type="text/javascript" defer></script>
   <title>The Smart Barn Project: Hardware</title>
 </head>
 
@@ -55,7 +52,7 @@
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       <div id="moreControllerInfo">
-        <button class="collapsibleListButton" style="grid-column: 1;" onclick="changeVisibilityStatus(0)" type="button">
+        <button class="collapsibleListButton" id="controllerSpecsButton" onclick="changeVisibilityStatus(0)" type="button">
           Specificaties van de controller<span class="collapsibleIcon">&#10133</span>
         </button>
         <div id="controllerSpecsHead" class="collapsibleList" style="display: none;">
@@ -68,7 +65,7 @@
             - Dimenties: 37mm X 142mm X 100mm<br />
           </p>
         </div>
-        <button class="collapsibleListButton" style="grid-column: 2;" onclick="changeVisibilityStatus(1)" type="button">
+        <button class="collapsibleListButton" id="controllerPortButton" onclick="changeVisibilityStatus(1)" type="button">
           Poorten op de controller<span class="collapsibleIcon">&#10133</span>
         </button>
         <div id="controllerPortsHead" class="collapsibleList" style="display: none;">

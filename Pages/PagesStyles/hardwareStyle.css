@@ -127,7 +127,6 @@
   border: 0;
   grid-template-columns: 1fr 32px;
   font-size: 2.5vh;
-  grid-row: 1;
 }
 
 .collapsibleList {
@@ -146,6 +145,19 @@
 }
 
 /* grid placing of controller info */
+#controllerSpecsButton,
+#controllerPortButton {
+  grid-row: 1;
+}
+
+#controllerSpecsButton {
+  grid-column: 1;
+}
+
+#controllerPortButton {
+  grid-column: 2;
+}
+
 #controllerSpecsHead,
 #controllerPortsHead {
   grid-row: 2;
@@ -162,4 +174,10 @@
 #TemperatuurSensorInfo img {
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+@media (max-width: 1000px) {
+  #moreControllerInfo {
+    display: block;
+  }
 }
