@@ -1,27 +1,5 @@
-body {
-	background: url("/Pages/PagesStyles/MicrosoftTeams-image.jpg")no-repeat;
-	background-size: cover;
-	}
-header, aside, footer, article {
-	display: block;
-	font-family: italic;
-	}
 
-header, footer {
-	background-color: black;
-	color: white;
-	padding: 10px;
-	}
-menu, footer {
-	color: white;
-	background-color: black;
-	text-align: right;
-	background-color: "MicrosoftTeams-image.jpg";
-	margin: auto;
-	display: block;
-	font-family:'Times New Roman', Times, serif;
-	border: solid black thin;
-}
+
 .wrong {
 	color: red;
 	font-size: .9em;
@@ -29,33 +7,9 @@ menu, footer {
 	justify-content: space-between;  
 
 }
-/* Add a black background color to the top navigation */
-.topnav {
-	background-color: rgb(0, 0, 0);
-	overflow: hidden;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-	float: right;
-	color: #ffffff;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-	cursor: pointer;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
-	background-color: rgb(255, 255, 255);
-	color: rgb(0, 0, 0);
-  }
-  
-  /* Add a color to the active/current link */
 
   
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
   *{
 	  margin: 0;
 	  padding: 0;
@@ -106,10 +60,8 @@ menu, footer {
 	  pointer-events: none;
 	  transition: .5s;
   }
-  input:focus ~ label,
-  input:valid ~ label{
-  top: -5px;
-  }
+
+  
   .inputbox input {
 	  width: 100%;
 	  height: 50px;
@@ -194,19 +146,7 @@ menu, footer {
 	text-align: center;
 	color: rgb(72, 72, 72);
   }
-  .ProductName {
-	color: #5e5e5e;
-	margin-top: 15%;
-	margin-left: 5%;
-	font-weight: bold;
-	font-size: larger;
-  }
-  .ProductInfo {
-	color: #5e5e5e;
-	margin-left: 5%;
-	font-size: small;
 
-  }
 
 
 
