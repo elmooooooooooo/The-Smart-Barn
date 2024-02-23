@@ -3,6 +3,7 @@
     scroll-behavior: smooth;
     transition: 300ms;
     margin: 0px;
+    padding: 0;
   }
 
 
@@ -10,8 +11,7 @@
   padding-top: 6vh;
   font-size: 200%;
   text-align: center;
-
-  background-color: rgba(13, 207, 198, 0.582);
+  background-color:  rgba(28, 179, 139, 0.582);
 }
 
 #controllerInfo{
@@ -22,9 +22,14 @@
 .slideshow-container {
   max-width: 1000px;
   position: relative;
-  margin: auto;
+  margin-left: 27vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+#moreControllerInfo
+{
+  display: grid;
 }
 
 /* Hide the images by default */
@@ -92,71 +97,71 @@
 }
 
 .controllerSpecsCollapsible{
-  background-color: rgba(13, 207, 198, 0.582);
+  display: flex;
+  background-color: rgba(245, 150, 87, 0.884);
   cursor: pointer;
   height: 5vh;
   width: 100%;
-  border: 1vh solid lightgray;
-  border-bottom: 0.5vh solid lightgray;
+  border: 1vh solid white;
+  border-top: 0.5vh solid white;
+  justify-content: center;
   text-align: center;
-  font-size: 1vw;
+  font-size: 1.5vw;
 }
 
-.controllerActive, .controllerSpecsCollapsible{
-  background-color: rgb(13, 207, 198);
+#controllerSpecs{
+  grid-row: 1;
+  grid-column: 1;
 }
 
-.controllerSpecs{
+.controllerSpecsHead{
+  justify-content: right;
+  width: 100%;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: none;
   overflow: hidden;
-  background-color: rgb(220, 235, 234);
-  border-bottom: 0.5vh solid black;
+  background-color: white;
 }
 
 .controllerSpecsCollapsible::after{
+  justify-content: right;
   content: '\02795';
-  color: whitesmoke;
+  color: rgb(190, 188, 188);
   float: right;
   margin-left: 1vw;
-  font-size: 1vw;
+  margin-top: -0.2vw;
+  font-size: 1.5vw;
 }
 
 .controllerActive::after{
   content: '\2796';
 }
 
-#SensorenTitel{
-  font-size: 200%;
-  text-align: center;
-
-  background-color:rgba(13, 207, 198, 0.582);
+#controllerPorts{
+  grid-row: 1;
+  grid-column: 2;
 }
 
 .controllerPortsCollapsible{
-  background-color: rgba(13, 207, 198, 0.582);
+  display: flex;
+  background-color: rgba(248, 154, 91, 0.884);
   cursor: pointer;
   height: 5vh;
   width: 100%;
-  border: 1vh solid lightgray;
-  border-top: 0.5vh solid lightgray;
-  border-bottom: non;
-  text-align: center;
-  font-size: 1vw;
+  border: 1vh solid white;
+  border-top: 0.5vh solid white;
+  font-size: 1.5vw;
+  justify-content: center;
 }
 
-.controllerPortsActive, .controllerPortsCollapsible{
-  background-color: rgb(13, 207, 198);
-}
-
-.controllerPorts{
+.controllerPortsHead{
+  width: 100%;
   padding-top: 2vh;
   padding-bottom: 2vh;
   display: none;
   overflow: hidden;
-  background-color: rgb(220, 235, 234);
-  border-bottom: 0.5vh solid black;
+  background-color: white;
 }
 
 .controllerPortsCollapsible::after{
@@ -164,17 +169,25 @@
   color: whitesmoke;
   float: right;
   margin-left: 1vw;
-  font-size: 1vw;
+  margin-top: -0.2vw;
+  font-size: 1.5vw;
 }
 
 .controllerPortsActive::after{
   content: '\2796';
 }
 
-#TemperatuurSensorTitel h3{
+#SensorenTitel{
   font-size: 200%;
   text-align: center;
-  background-color: rgb(13, 207, 198);
+  background-color:  rgba(28, 179, 139, 0.582);
+}
+
+#TemperatuurSensorTitel h3{
+  margin-top: 2vh;
+  font-size: 200%;
+  text-align: center;
+  background-color: rgba(28, 179, 139, 0.582);
 }
 
 #TemperatuurSensorInfo {
@@ -194,8 +207,8 @@
   width: 100%;
   height: 5vh;
   font-size: 1vw;
-  background-color: rgb(13, 207, 198);
-  border: 1vh solid lightgray;
+  background-color:  rgba(248, 154, 91, 0.884);
+  border: 1vh solid white;
 }
 
 .TemperatuurSensorSpecsCollapsible::after{
@@ -209,7 +222,7 @@
 
 .TemperatuurSensorSpecs{
   display: none;
-  background-color: rgb(220, 235, 234);
+  background-color: white;
   padding-top: 2vh;
   padding-bottom: 2vh;
   border-bottom: 0.5vh solid black;
@@ -219,7 +232,7 @@
 #LuchtVochtigheidsSensorTitel{
   font-size: 200%;
   text-align: center;
-  background-color: rgb(13, 207, 198);
+  background-color: rgba(28, 179, 139, 0.582);
 }
 
 #LuchtVochtigheidsSensorInfo{
@@ -231,8 +244,8 @@
   width: 100%;
   height: 5vh;
   font-size: 1vw;
-  background-color: rgb(13, 207, 198);
-  border: 1vh solid lightgray;
+  background-color:  rgba(248, 154, 91, 0.884);
+  border: 1vh solid white;
 }
 
 .LuchtVochtigheidsSensorSpecsCollapsible::after{
@@ -246,8 +259,7 @@
 
 .LuchtVochtigheidsSensorSpecs{
   display: none;
-  background-color: rgb(220, 235, 234);
   padding-top: 2vh;
   padding-bottom: 2vh;
-  border-bottom: 0.5vh solid black;
+  border-bottom: 0.5vh solid white;
 }
