@@ -1,9 +1,14 @@
 <link rel= "stylesheet" type="text/css" href="/HergebruikendeCodeSite/navbar.css">
 <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/hamburgerMenu/hamburgerMenu.css">
+
 <nav>
 <button id="hamburgerMenu">
-    <input type="checkbox" id="checkbox4" class="checkbox4 visuallyHidden">
-    <label for="checkbox4">
+    <input type="checkbox" id="hamburgerCheckBox" class="hamburgerCheckBox visuallyHidden" onclick="if (document.getElementById('hamburgerCheckBox').checked) {
+        document.getElementById('mobileMenu').style.display = 'block'; 
+    } else {
+        document.getElementById('mobileMenu').style.display = 'none'; 
+    };">
+    <label for="hamburgerCheckBox">
         <div class="hamburger hamburger4">
             <span class="bar bar1"></span>
             <span class="bar bar2"></span>
@@ -23,3 +28,7 @@
 <button class="navbutton" id="hardware" onclick="location.href='/Pages/Hardware.html'">Hardware</button>
 <button class="navbutton" id="data" onclick="location.href='/Pages/login.html'">Login</button>
 </nav>
+<div id="mobileMenu">
+    hello
+</div>
+

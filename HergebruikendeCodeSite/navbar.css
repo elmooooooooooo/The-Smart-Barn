@@ -2,7 +2,7 @@
   --amountOfNavbarButtons: 4;
 }
 
-navigatiebalk{
+/* navigatiebalk{
   display: flex;
   position: fixed;
   z-index: 10;
@@ -10,10 +10,14 @@ navigatiebalk{
   left: 0;
   right: 0;
   width: 100vw;
-}
+} */
 
 nav {
   display: flex;
+}
+
+#mobileMenu {
+  display: none;
 }
 
 #hamburgerMenu {
