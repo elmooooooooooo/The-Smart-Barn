@@ -29,7 +29,8 @@ function login() {
 }
 
 function forgot() {
-    alert("Er is een email verstuurd met de nieuwe wachtwoord!")
+    // alert("Er is een email verstuurd met de nieuwe wachtwoord!")
+    window.location.href = "/pages/Data.html"; // ! verwijder voor release
 
 }
 

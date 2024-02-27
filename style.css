@@ -13,9 +13,8 @@ body {
 }
 
 #titelInFoto{
-  height: 25vh;
-  padding-top: 25vh;
-  padding-bottom: 25vh;
+  width: 100%;
+  height: auto;
   padding-left: 0px;
   padding-right: 0px;
   margin: 0;
@@ -26,12 +25,11 @@ body {
 
 #Quote{
   text-align:center;
-  margin-top: 0;
+  margin-top: 20px;
   margin-bottom: 0;
 
-  color: lightsalmon;
-
-  font-size: 2vw;
+  color: rgb(238, 144, 94);
+  font-size: 3.5vw;
 }
 
 h1 {
@@ -49,4 +47,9 @@ h2 {
   text-align: center;
   margin-top: 1vh;
   padding-bottom: 1vh;
+}
+
+#navbar_logo {
+  -webkit-filter: invert(1);
+  filter: invert(1);
 }
