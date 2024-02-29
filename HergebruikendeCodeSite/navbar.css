@@ -2,7 +2,7 @@
   --amountOfNavbarButtons: 4;
 }
 
-navigatiebalk{
+#fixed{
   display: flex;
   position: fixed;
   z-index: 10;
@@ -37,7 +37,7 @@ nav {
 }
 
 #hamburgerMenu {
-  background-color: rgb(238, 144, 94);
+  background-color: var(--primaryColor);
   border: 0;
   width: 50px;
   display: none;
@@ -55,7 +55,7 @@ nav {
 
   font-size: 4vh;
   font-weight: bold;
-  background-color: rgb(238, 144, 94);
+  background-color: var(--primaryColor);
   cursor: pointer;
 
 }

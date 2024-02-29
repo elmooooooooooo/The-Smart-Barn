@@ -1,6 +1,10 @@
 <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/navbar.css">
 <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/hamburgerMenu/hamburgerMenu.css">
+<!-- load global vars on all pages -->
+<link rel="stylesheet" type="text/css" href="/vars.css">
 
+
+<div id="fixed">
 <nav>
     <button id="hamburgerMenu">
         <input type="checkbox" id="hamburgerCheckBox" class="hamburgerCheckBox visuallyHidden" onclick="if (document.getElementById('hamburgerCheckBox').checked) {
@@ -38,3 +42,5 @@
         <li><a href="/Pages/login.html">Login</a></li>
     </ul>
 </div>
+</div>
+<div style="height: 5.5vh;"></div> <!-- gets rid of gap from navbar -->
