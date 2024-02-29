@@ -71,7 +71,7 @@ participant:nth-child(even) {
   height: 55vw;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
   .personImage {
     width: 80vw;
     height: 110vw;
