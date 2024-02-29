@@ -1,3 +1,5 @@
+
+
 * {
   font-family: "Times New Roman", Times, serif;
   scroll-behavior: smooth;
@@ -34,8 +36,13 @@
   grid-row: 2;
 }
 
-.TussenDoelenVisualisatieTitel{
+#TussenDoelenVisualisatieTitel{
   text-align: center;
+
+  background-color: rgb(183, 197, 244);
+  padding-top: 0.25vw;
+  padding-bottom: 0.25vw;
+
 }
 
 .TussenDoelenVisualisatieInfo{
@@ -47,13 +54,29 @@
   text-align: center;
 }
 
+#TussenDoelAmyInfo{
+  text-align: center;
+}
+
 .TussenDoelTycho{
   grid-column: 2;
   text-align: center;
 }
 
+#TussenDoelTychoInfo{
+  text-align: center;
+}
+
 .TussenDoelenHardware{
   grid-row: 3;
+}
+
+#TussenDoelenHardwareTitel{
+  text-align: center;
+
+  background-color: rgb(13, 110, 253);
+  padding-top: 0.25vw;
+  padding-bottom: 0.25vw;
 }
 
 .TussenDoelenHardwareInfo{
@@ -74,6 +97,14 @@
   grid-row: 4;
 }
 
+#TussenDoelenSoftwareTitel{
+  text-align: center;
+
+  background-color: rgb(25, 135, 84);
+  padding-top: 0.25vw;
+  padding-bottom: 0.25vw;
+}
+
 .TussenDoelenSoftwareInfo{
   display: grid;
 }
@@ -86,4 +117,34 @@
 .TussenDoelZaka{
   grid-column: 2;
   text-align: center ;
+}
+
+#TussenDoelenBegeleidersTitel{
+  text-align: center;
+
+  background-color: rgb(255, 12, 223);
+  padding-top: 0.25vw;
+  padding-bottom: 0.25vw;
+}
+
+.TussenDoelenBegeleidersInfo{
+  display: grid;
+}
+
+.TussenDoelColson{
+  grid-column: 1;
+  text-align: center;
+}
+
+.TussenDoelClijsters{
+  grid-column: 2;
+  text-align: center;
+}
+
+.TussenTitel{
+  font-size: 1.25vw;
+}
+
+.PersoonlijkeTussenTitel{
+  font-size: 0.95vw;
 }
