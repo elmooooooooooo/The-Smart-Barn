@@ -3,7 +3,7 @@ Disclaimer{
 }
 
 #Disclaimer{
-    background-color: rgb(165, 165, 165);
+    background-color: var(--primaryColor);
 
     
     padding-top: 1vh;

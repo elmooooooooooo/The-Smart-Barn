@@ -42,7 +42,22 @@
   background-color: rgb(183, 197, 244);
   padding-top: 0.25vw;
   padding-bottom: 0.25vw;
+  margin-top: 30px;
 
+}
+
+.DoelKaders{
+  background-color: rgb(240, 240, 240);
+  border-radius: 25px;
+  height: 10vw;
+  margin-left: 35vw;
+  margin-right: 35vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+}
+
+.GezamelijkDoelVisualisatie{
+  text-align: center;
 }
 
 .TussenDoelenVisualisatieInfo{
@@ -79,6 +94,10 @@
   padding-bottom: 0.25vw;
 }
 
+.GezamelijkDoelHardware{
+  text-align: center;
+}
+
 .TussenDoelenHardwareInfo{
   display: grid;
 }
@@ -95,6 +114,7 @@
 
 .TussenDoelenSoftware{
   grid-row: 4;
+  text-align: center;
 }
 
 #TussenDoelenSoftwareTitel{
@@ -122,7 +142,7 @@
 #TussenDoelenBegeleidersTitel{
   text-align: center;
 
-  background-color: rgb(255, 12, 223);
+  background-color: rgb(189, 189, 189);
   padding-top: 0.25vw;
   padding-bottom: 0.25vw;
 }
