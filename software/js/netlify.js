@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
  function CheckLogin(){
     window.href = "https://www.google.com"
     console.log('start functie');
-    var button = document.getElementById('Login');
+    var button = document.getElementById('data');
     button.innerHTML = "Data";
     button.href = "/pages/Data.html";
     console.log('heyfyuehfuzhfuhzuhf');
