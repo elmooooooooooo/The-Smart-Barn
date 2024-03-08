@@ -38,14 +38,24 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Logged out');
 
     });
-
-    // Upon page load in: check if user is logged. Print msg & change visible button depending on situation.
-    const user = netlifyIdentity.currentUser();
-    if (user) {
-        console.log('User logged in:', user);
-
-    } else {
-        console.log('User not logged in');
-
-    }
 });
+
+
+ // Upon page load in: check if user is logged. Print msg & change visible button depending on situation.
+ function CheckLogin(){
+    window.href = "https://www.google.com"
+    console.log('start functie');
+    var button = document.getElementById('data');
+    button.innerHTML = "Data";
+    button.href = "/pages/Data.html";
+    console.log('heyfyuehfuzhfuhzuhf');
+    // const user = netlifyIdentity.currentUser();
+    // if (user) {
+    //     document.getElementById('Login').innerHTML = "Data"
+    //     document.getElementById('Login').href = "/pages/Data.html"
+    //     console.log('User logged in:', user);
+    // } else {
+    //     console.log('User not logged in');
+
+    // }
+}
