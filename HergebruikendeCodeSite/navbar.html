@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/hamburgerMenu/hamburgerMenu.css">
 <!-- load global vars on all pages -->
 <link rel="stylesheet" type="text/css" href="/vars.css">
+<script scr="/software/js/netlify.js"></script>
 
 
 <div id="fixed">
@@ -39,7 +40,8 @@
         <li><a href="/Pages/Doelen.html">Doelen</a></li>
         <li><a href="/Pages/Deelnemers.html">Deelnemers</a></li>
         <li><a href="/Pages/Hardware.html">Hardware</a></li>
-        <li><a href="/Pages/login.html">Login</a></li>
+        <li><a id="Login" href="/Pages/login.html" onload="CheckLogin()">Login</a></li>
+        
     </ul>
 </div>
 </div>

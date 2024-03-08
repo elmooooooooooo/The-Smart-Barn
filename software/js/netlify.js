@@ -40,12 +40,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Upon page load in: check if user is logged. Print msg & change visible button depending on situation.
-    const user = netlifyIdentity.currentUser();
-    if (user) {
-        console.log('User logged in:', user);
+    function CheckLogin(){
+        const user = netlifyIdentity.currentUser();
+        if (user) {
+            document.getElementById('Login').innerHTML = "Data"
+            document.getElementById('Login').href = "/pages/Data.html"
+            console.log('User logged in:', user);
+        } else {
+            console.log('User not logged in');
 
-    } else {
-        console.log('User not logged in');
-
+        }
     }
 });
