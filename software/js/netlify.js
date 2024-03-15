@@ -45,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
  function CheckLogin(){
     window.href = "https://www.google.com"
     console.log('start functie');
-    var button = document.getElementById('data');
+    var button = document.getElementById('login');
+    var button2 = document.getElementById('login2');
+    button2.innerHTML = "Data";
     button.innerHTML = "Data";
     button.href = "/pages/Data.html";
+    button2.href= "/pages/Data.html";
     console.log('heyfyuehfuzhfuhzuhf');
     // const user = netlifyIdentity.currentUser();
     // if (user) {
