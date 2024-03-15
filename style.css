@@ -111,7 +111,7 @@ h2 {
 
 .koppelboxes{
   width: 25vw;
-  height: 35vh;
+  height: 60vh;
 
   margin-left: 4vw;
   margin-top: 3vh;
@@ -119,6 +119,6 @@ h2 {
 
   border: 0.2vh solid darkslategray;
   border-radius: 1vh;
-  
+
   background-color: rgb(235, 235, 235);
 }
