@@ -7,7 +7,7 @@
 
 body {
   background-color: whitesmoke;
-  color: black;
+  /* color: black; */
   margin: 0;
   padding: 0px;
 }
@@ -55,6 +55,46 @@ h2 {
   -webkit-filter: invert(1);
   filter: invert(1);
 }
+
+
+.koppelNaarGroepenInformatie{
+  display: grid;
+}
+
+.groepVisualisatie{
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.GroepVisualisatieTitel{
+  color: var(--visColor);
+}
+
+.groepSoftware{
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.groepSoftwareTitel{
+  color: var(--softColor);
+}
+
+
+.groepHardware{
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.groepHardwareTitel{
+  color: var(--hardColor);
+}
+
+
+
+
+
+
+
 
 #LogoFoto{
   margin-bottom: 2vw;
