@@ -27,23 +27,13 @@
       <div class="slideshow-container">
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
-          <img src="/Foto/SiemensIOT2050.webp" style="width: 50%" />
-          <div class="text">Siemens IOT 2050</div>
+          <img src="/Foto/RaspberryPi4OverallVieuw.jpg" style="width: 50%" />
+          <div class="text">Raspberry Pi overall view</div>
         </div>
 
         <div class="mySlides fade">
-          <img src="/Foto/TopSiemensIOT2050.webp" style="width: 50%" />
-          <div class="text">Left side vieuw Siemens IOT 2050</div>
-        </div>
-
-        <div class="mySlides fade">
-          <img src="/Foto/UpperPortsSiemensIOT2050.webp" style="width: 50%" />
-          <div class="text">Upper ports of the Siemens IOT 2050</div>
-        </div>
-
-        <div class="mySlides fade">
-          <img src="/Foto/LowerPortsSiemensIOT2050.webp" style="width: 50%" />
-          <div class="text">Lower ports of the Siemens IOT 2050</div>
+          <img src="/Foto/RaspberryPi4PortVieuw.webp" style="width: 50%" />
+          <div class="text">Raspberry Pi port view</div>
         </div>
 
         <!-- Next and previous buttons -->
@@ -56,12 +46,10 @@
         </button>
         <div id="controllerSpecsHead" class="collapsibleList" style="display: none;">
           <p>
-            - Ram: 1GB<br />
-            - Input voltage: 12/24V DC<br />
+            - Ram: 1GB, 2GB, 4GB of 8GB<br />
+            - Input voltage: 5V DC via USB-C connector<br />
             - Ouput voltage: 3.3V of 5V<br />
             - Operatie Temperatuur: 0&deg;C...50&deg;C<br />
-            - materiaal behuizing: Plastic<br />
-            - Dimenties: 37mm X 142mm X 100mm<br />
           </p>
         </div>
         <button class="collapsibleListButton" id="controllerPortButton" onclick="changeVisibilityStatus(1)" type="button">
@@ -69,15 +57,11 @@
         </button>
         <div id="controllerPortsHead" class="collapsibleList" style="display: none;">
           <p>
-            - 2 x LAN 10/100/1000 Mbps ethernet interface (RJ45)<br />
-            - 2 x USB v2.0<br />
-            - 1 x COM (RS232 / 485)<br />
-            - 1 X DisplayPort<br />
-            - 1 x mPCIe hardware expencion slot<br />
-            - ARDUINO UNO R3 shield interface<br />
-            - Micro SD card<br />
-            - 20 X Digital inputs<br />
-            - 6 X Analog inputs<br />
+            - 1X:  Gigabit ethernet<br>
+            - 2X: Micro HDMI-poorten (tot 4K 60fps)<br>
+            - 2X: USB-A 2.0 poorten<br>
+            - 2X: USB-A 3.0 poorten<br>
+            - 40X: GPIO-pinnen
           </p>
         </div>
       </div>
@@ -91,7 +75,7 @@
     </div>
     <div id="SensorenInfo">
       <div id="TemperatuurSensor">
-        <div class="subtitle" style="margin-top: 3vh;">
+        <div class="subtitle" style="border-top: 0.5vh solid black;">
           <h3>Temperatuursensor</h3>
         </div>
         <div id="TemperatuurSensorInfo">

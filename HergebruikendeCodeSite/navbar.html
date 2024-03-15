@@ -1,10 +1,12 @@
 <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/navbar.css">
 <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/hamburgerMenu/hamburgerMenu.css">
 <!-- load global vars on all pages -->
-<link rel="stylesheet" type="text/css" href="vars.css">
+<link rel="stylesheet" type="text/css" href="/vars.css">
+<script src="/software/js/netlify.js"></script>
 
 
 <div id="fixed">
+<body onload="CheckLogin()"></body>
 <nav>
     <button id="hamburgerMenu">
         <input type="checkbox" id="hamburgerCheckBox" class="hamburgerCheckBox visuallyHidden" onclick="if (document.getElementById('hamburgerCheckBox').checked) {
@@ -31,20 +33,16 @@
     <button class="navbutton" id="doelen" onclick="location.href='/Pages/Doelen.html'">Doelen</button>
     <button class="navbutton" id="deelnemers" onclick="location.href='/Pages/Deelnemers.html'">Deelnemers</button>
     <button class="navbutton" id="hardware" onclick="location.href='/Pages/Hardware.html'">Hardware</button>
-    <button class="navbutton" id="data" onclick="location.href='/Pages/login.html'">Login</button>
+    <button class="navbutton"  id="login" onclick="location.href='/Pages/login.html'">Login</button>
 </nav>
 <div id="mobileMenu">
-        <br>
-        <a href="/index.html">Frontpage</a><br>
-        <br>
-        <a href="/Pages/Doelen.html">Doelen</a><br>
-        <br>
-        <a href="/Pages/Deelnemers.html">Deelnemers</a><br>
-        <br>
-        <a href="/Pages/Hardware.html">Hardware</a><br>
-        <br>
-        <a href="/Pages/login.html">Login</a><be>
-    
+    <ul>
+        <li><a href="/index.html">Frontpage</a></li>
+        <li><a href="/Pages/Doelen.html">Doelen</a></li>
+        <li><a href="/Pages/Deelnemers.html">Deelnemers</a></li>
+        <li><a href="/Pages/Hardware.html">Hardware</a></li>
+        <li><a href="/Pages/login.html">Login</a></li>
+    </ul>
 </div>
 </div>
 <div style="height: 5.5vh;"></div> <!-- gets rid of gap from navbar -->

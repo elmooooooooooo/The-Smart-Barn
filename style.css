@@ -16,8 +16,8 @@ body {
   width: 100%;
   height: auto;
   padding-left: 0px;
-  padding-right: 0px;
-  margin: 0;
+  padding-right: 20px;
+  margin: -20px;
   text-align: center;
   background-image: url(/Foto/HompageTitlePicture.png);
   background-size: cover;
@@ -41,10 +41,12 @@ h1 {
 h2 {
   margin-top: 2vh;
   text-align: center;
+  font-size: 200%;
 }
 
 #Inleiding{
   text-align: center;
+  font-size: 1vw;
   margin-top: 1vh;
   padding-bottom: 1vh;
 }
@@ -52,4 +54,13 @@ h2 {
 #navbar_logo {
   -webkit-filter: invert(1);
   filter: invert(1);
+}
+
+#LogoFoto{
+  margin-bottom: 2vw;
+}
+
+.sponsors{
+    /* margin-left: 75vw; */
+    text-align: center;
 }
