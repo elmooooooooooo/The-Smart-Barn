@@ -1,3 +1,6 @@
 :root {
     --primaryColor: rgb(238, 144, 94);
+    --visColor: rgb(183,197,244);
+    --hardColor: rgb(13,110,253);
+    --softColor: rgb(25,135,84);
 }
