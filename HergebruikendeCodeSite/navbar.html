@@ -1,13 +1,10 @@
-<head>
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/navbar.css">
-    <link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/hamburgerMenu/hamburgerMenu.css">
-    <!-- load global vars on all pages -->
-    <link rel="stylesheet" type="text/css" href="/vars.css">
-    <script src="/software/js/netlify.js"></script>
-</head>
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/navbar.css">
+<link rel="stylesheet" type="text/css" href="/HergebruikendeCodeSite/hamburgerMenu/hamburgerMenu.css">
+<!-- load global vars on all pages -->
+<link rel="stylesheet" type="text/css" href="/vars.css">
 
-<div id="fixed" onload="CheckLogin()">
+<div id="fixed">
     <nav>
         <button id="hamburgerMenu">
             <input type="checkbox" id="hamburgerCheckBox" class="hamburgerCheckBox visuallyHidden" onclick="if (document.getElementById('hamburgerCheckBox').checked) {
@@ -29,7 +26,8 @@
         <div id="startPagina">
             <button class="navbutton startpage icon" onclick="location.href='/index.html'"><img
                     src="/Foto/Barn_icoon.png" height="25" width="25" id="navbar_logo"></button>
-            <button class="navbutton startpage" id="home" onclick="location.href='/index.html'">The Smart Barn</button>
+            <button class="navbutton startpage" id="home" onclick="location.href='/index.html'">The Smart
+                Barn</button>
         </div>
         <button class="navbutton" id="doelen" onclick="location.href='/Pages/Doelen.html'">Doelen</button>
         <button class="navbutton" id="deelnemers" onclick="location.href='/Pages/Deelnemers.html'">Deelnemers</button>
