@@ -70,6 +70,10 @@ h2 {
   color: var(--visColor);
 }
 
+.GroepVisualisatieInformatie{
+  text-align: center;
+}
+
 .groepSoftware{
   grid-row: 1;
   grid-column: 2;
@@ -77,6 +81,10 @@ h2 {
 
 .groepSoftwareTitel{
   color: var(--softColor);
+}
+
+.groepSoftwareInformatie{
+  text-align: center;
 }
 
 
@@ -89,18 +97,28 @@ h2 {
   color: var(--hardColor);
 }
 
-
-
-
-
-
-
+.groepHardwareInformatie{
+  text-align: center;
+}
 
 #LogoFoto{
   margin-bottom: 2vw;
 }
 
 .sponsors{
-    /* margin-left: 75vw; */
     text-align: center;
+}
+
+.koppelboxes{
+  width: 25vw;
+  height: 60vh;
+
+  margin-left: 4vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+
+  border: 0.2vh solid darkslategray;
+  border-radius: 1vh;
+
+  background-color: rgb(235, 235, 235);
 }
